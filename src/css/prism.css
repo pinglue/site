@@ -1,0 +1,46 @@
+
+.command-line-prompt {
+    border-right: unset;
+    margin-right: unset;
+}
+
+.command-line-prompt > span:before {
+    color: #10ed63;
+    content: " ";
+    display: block;
+    padding-right: 0.8em;
+  }
+  
+  /* Prompt for all users */
+  .command-line-prompt > span[data-user]:before {
+    content: "[" attr(data-user) "@" attr(data-host) "] $";
+  }
+  
+  /* Prompt for root */
+  .command-line-prompt > span[data-user="root"]:before {
+    content: "[" attr(data-user) "@" attr(data-host) "] #";
+  }
+  
+  .command-line-prompt > span[data-prompt]:before {
+    content: attr(data-prompt);
+  }
+
+  .token.inserted-sign {
+      background-color: #7ec69936;
+  }
+
+  .token.inserted-sign .token.inserted {
+    color: #0de30d
+  }
+
+  .token.deleted-sign {
+    background-color: #e2777a4a;
+  }
+
+  .token.deleted-sign .token.deleted {
+    color: #f7a6a8;
+  }
+
+  code {
+      background-color: #ccc6;
+  }
