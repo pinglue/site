@@ -9,6 +9,7 @@ export class TocNode {
   title: string;
   slug: string;
   isTopic: boolean;
+  path: string
 
   // child sections
   children: TocNode[] = [];
@@ -17,16 +18,18 @@ export class TocNode {
   isExpanded = false;
 
   constructor(data:{
-    id: string;
-    title: string;
-    slug: string;
-    isTopic: boolean
+    id?: string;
+    title?: string;
+    slug?: string;
+    isTopic?: boolean
+    path?: string
   }) {
 
-    this.id = data.id;
-    this.title = data.title;
-    this.slug = data.slug;   
-    this.isTopic = this.isTopic;
+     this.id = data.id;
+     this.title = data.title;
+     this.slug = data.slug;   
+     this.isTopic = this.isTopic;
+     this.path = data.path
   }
 
   add(node: TocNode):void {
