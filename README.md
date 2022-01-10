@@ -1,7 +1,13 @@
 pinglue.org website
 ==========================
 
-A bootstrapped template based on GatsbyJS to generate doc site based on md/mdx content (found in `/docs-src` folder) - WIP
+A bootstrapped template based on GatsbyJS to generate doc site based on md/mdx content (found in `/docs-src` folder)
+
+Pre-req
+-------------
+* Npm version **8.3.0** (make sure you use the same npm version, otherwise problem with package-lock.json ...)
+* Node version 14.18.0 or higher
+
 
 Project
 --------------
