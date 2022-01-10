@@ -1,10 +1,8 @@
 import { TocNode } from "./toc-node";
 
-export function toTocNodes(gqlNodes: []): TocNode {
-  const formattedGqNodes = gqlNodes.map((i: any) => {
-    i.formattedSlug = i.slug.split("/");
-    return i;
-  });
+export function toTocNodes(gqlNodes: any[]): TocNode {
+  for(const n of gqlNodes) 
+    n.formattedSlug = n.slug.split("/");
 
   const result = new TocNode({});
 
@@ -17,14 +15,14 @@ export function toTocNodes(gqlNodes: []): TocNode {
       root.isExpanded = false;
       return;
     }
-    let founded = false;
+    let found = false;
     root.children.forEach((i) => {
       if (i.path === slug[0]) {
-        founded = true;
-        add(i, data, [...slug.slice(1, slug.length)]);
+        found = true;
+        add(i, data, slug.slice(1));
       }
     });
-    if (!founded) {
+    if (!found) {
       const newChild = new TocNode({
         path: slug[0],
       });
@@ -42,8 +40,8 @@ export function toTocNodes(gqlNodes: []): TocNode {
     }
   };
 
-  formattedGqNodes.forEach((i) => {
+  for (const i of gqlNodes)
     add(result, i, i.formattedSlug);
-  });
+
   return result;
 }
