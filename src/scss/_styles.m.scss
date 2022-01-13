@@ -1,0 +1,154 @@
+
+$spacer: 16px;
+
+/* Configuration
+============================ */
+@import "styles/functions";
+@import "styles/variables";
+@import "styles/mixins";
+
+/* Normalization/browser enhancement
+=========================================== */
+@import "styles/reboot";
+
+/* Base components
+=============================== */
+@import "styles/agreements";
+@import "styles/btns";
+@import "styles/headers.m";
+@import "styles/contents.m";
+@import "styles/menus";
+@import "styles/modals.m";
+@import "styles/cards";
+@import "styles/chip";
+@import "styles/lists.m";
+@import "styles/inputs";
+@import "styles/utilities";
+@import "styles/footers.m";
+@import "styles/iboxes";
+@import "styles/icircles";
+@import "styles/panels";
+@import "styles/sections.m";
+@import "styles/action-sheet.m";
+@import "styles/steppers";
+@import "styles/steps.m";
+@import "styles/agreements";
+@import "styles/loaders";
+@import "styles/pagination";
+
+/* To be moved/refactored
+========================================= */
+
+
+/* Dropdown
+----------------- */
+.dropdown-menu {
+  font-size: $font-size-base;
+  color: $body-color;
+  background-color: white;
+  background-clip: padding-box;
+
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: $box-shadow;
+
+  hr {
+    overflow: hidden;
+    border-top: 1px solid rgba(black, 0.15);
+  }
+}
+
+.dropdown-item {
+  font-weight: normal;
+  color: $body-color;
+  text-decoration: none;
+  background-color: transparent; // For `<button>`s
+
+  &:hover,
+  &:focus {
+    color: $primary-color;
+    background-color: $light-grey;
+
+    //text-decoration: if($link-hover-decoration == underline, none, null);
+    //@include gradient-bg($dropdown-link-hover-bg);
+  }
+
+  &.active,
+  &:active {
+    color: white;
+    background-color: $primary-color;
+  }
+
+  &.disabled,
+  &:disabled {
+    color: $light-grey;
+    pointer-events: none;
+    background-color: transparent;
+  }
+}
+
+.dropdown-header {
+  //@include font-size($font-size-sm);
+  //color: $dropdown-header-color;
+}
+
+.dropdown-item-text {
+  //color: $dropdown-link-color;
+}
+
+/* modal
+--------------- */
+
+$details-modal-y-margin: 72px;
+$details-modal-col2-width: 500px;
+
+.modal-stretch {
+  max-width: calc(100vw - (#{$details-modal-y-margin} * 2));
+}
+
+.modal-xxl {
+  max-width: 1200px;
+  width: 1200px;
+}
+
+.modal-header {
+  color: $primary-color;
+
+  h4 {
+    margin-bottom: unset;
+  }
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/*.re-banner {
+  height:100vh;
+
+  h1 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0;
+      color: $primary-color;
+  }
+
+  p.-lead {
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+  }
+
+  .-caption {
+      max-width:992px;
+      margin-top:100px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+  }
+
+}*/
+

@@ -1,0 +1,29 @@
+.ss-subs-form-landing {
+
+    background-color: $primary-color;
+    padding: 2*$spacer 2.5*$spacer 3*$spacer 2.5*$spacer;
+
+   
+
+    h1, label, p {
+        color: white;
+    }
+
+    &__submit {
+        color: white;
+        text-align: center;
+        
+        button {
+            background-color: #8a2be2;
+            width: 100%;
+            color: white;            
+        }
+    }
+    
+
+   
+
+    
+
+
+}

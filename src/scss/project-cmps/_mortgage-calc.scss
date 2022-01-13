@@ -1,0 +1,60 @@
+
+.ss-mortgage-calc {
+    background-color: $header-color;
+    padding: 1.5*$spacer;
+    color: antiquewhite;
+    border-radius: 2%;
+    max-width: 500px;
+
+    h2 {
+        color: antiquewhite;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th {
+        //color: $grey;
+        font-weight: normal;
+        padding-bottom: 0.5*$spacer;
+    }    
+
+    tbody > tr:nth-of-type(odd) {
+        background-color: $body-color;    
+    }
+
+    td {
+        //font-size: $font-size-lg;
+        padding: 0.5*$spacer;
+    }
+
+    &__price {
+        text-align: right;
+    }
+
+    &__term {
+        //font-weight: 300;
+    }
+
+    &__rate {
+        //font-weight: 300;
+        //background-color: #3f48cc26;
+        padding: 8px;
+        border-radius: 22px;
+        //color: #202466;
+    }
+
+    .mat-slider .mat-slider-thumb {
+        border: 1px solid rgba(0,0,0,0.38);
+        background-color: white;
+    }
+
+    .mat-slider .mat-slider-track-background {
+        background-color: #eee;
+    }
+    
+    .mat-slider.cdk-focused .mat-slider-track-background {
+        background-color: #eee;
+    }
+}

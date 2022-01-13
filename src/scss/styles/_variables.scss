@@ -1,0 +1,70 @@
+/* theme variables*/
+
+/* typography
+===================== */
+
+// this is the root font size that determines the rem - it is also the body font-size
+$font-size-base: 18px;
+
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.25rem;
+
+$font-size-h1: 2.5rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1rem;
+$font-size-h4: 1rem;
+$font-size-h5: 1rem;
+$font-size-h6: 1rem;
+
+$font-size-p: 1rem;
+
+/* fonts
+====================== */
+
+$header-font: 'Playfair Display', serif;
+$body-font: 'Nunito', sans-serif;
+
+
+/* colors
+====================== */
+
+$body-color: #4a4a4a;
+$header-color: #212529;
+
+$primary-color: #3f48cc;
+$primary-color-shade: shift-color($primary-color, 50%);
+$primary-bg-light: shift-color($primary-color, -95%);
+
+$primary-grey: #777989;
+
+
+$secondary-color: #ED6C02;
+
+
+
+$light-grey: #e5e5e5;
+$grey: #aaa;
+
+
+$dark-grey: #777989;
+
+
+$red: #dc3545;
+
+
+/* sizes
+===================== */
+
+// TODO: what the heck of this?
+$padding-x-base: 1*$spacer;
+$input-height: 2.5*$spacer;
+//$border-rounded: 20px;
+
+/* shadows
+=================== */
+$box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
+$box-shadow-sm: 0 0.125rem 0.25rem rgba(black, 0.075);
+$box-shadow-lg: 0 1rem 3rem rgba(black, 0.175);
+
+
+

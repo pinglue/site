@@ -1,0 +1,30 @@
+
+.ss-mortgage-widget1 {
+
+    //color: $primary-color;
+    text-align: center;
+    padding: $spacer;
+
+    color: #e6dbb9;
+    background-color: #232129;
+
+
+    &__rate {
+        font-size: 7.5rem;
+        //color: #111445;
+        margin-top: -1.5rem;
+        color: $primary-color-shade;
+        font-weight: bold;
+        color: #e5e5e5;
+    }
+
+    &__post-title {
+        margin-top: -3rem;
+    }
+
+    
+
+    
+
+
+}
