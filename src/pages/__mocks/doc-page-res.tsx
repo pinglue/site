@@ -1,6 +1,6 @@
 
 import React, { CSSProperties, useState } from "react";
-import './styles.scss';
+import './project.scss';
 
 // feel free to add more styles
 
