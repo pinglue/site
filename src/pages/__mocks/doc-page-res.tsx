@@ -1,17 +1,21 @@
 
-import React, {useState} from "react";
+import React, { CSSProperties, useState } from "react";
+import './styles.scss';
 
 // feel free to add more styles
 
-const style = {
+const style: { [k: string]: CSSProperties } = {
     gridWrapper: {
         display: "grid",
-        gridTemplateColumns: "300px 1fr 200px",
+        position: 'relative',
+        // gridTemplateColumns: "300px 1fr 200px", <-- defined in styles.scss using media query
         color: "white"
     },
     leftSideBar: {
         height: "100vh",
-        backgroundColor: "purple"
+        backgroundColor: "purple",
+        zIndex: 2,
+        // defined more style in styles.scss using media query
     },
     body: {
         height: "100vh",
@@ -24,23 +28,33 @@ const style = {
     header: {
         backgroundColor: "black",
         height: "50px"
+    },
+    overlay: {
+        zIndex: 1,
+		position: 'fixed',
+		top: 0,
+		left: 0,
+		width: '100vw',
+		height: '100vh',
+		background: 'rgba(0,0,0,0.5)',
+        // defined more style in styles.scss using media query to toggle visibility
     }
 }
 
 export default function() {
 
-    const [showLeftSidebar, setShowLeftSidebar] = useState(true);
+    const [showLeftSidebar, setShowLeftSidebar] = useState(false);
 
     return (
         <>
         <div style={style.header}>
-            <button onClick={()=>setShowLeftSidebar(!showLeftSidebar)}>
+            <button className="ss-toggle-left-sidebar" onClick={()=>setShowLeftSidebar(!showLeftSidebar)}>
                 Toggle
             </button>
         </div>
-        <div style={style.gridWrapper} className={showLeftSidebar?"show-left-sidebar":""}>
-            <div style={style.leftSideBar}>
-                
+        <div style={style.gridWrapper} className={`ss-grid-wrapper ${showLeftSidebar?"show-left-sidebar":""}`}>
+            <div style={style.overlay} className="ss-overlay" onClick={() => setShowLeftSidebar(false)}></div>
+            <div style={style.leftSideBar} className="ss-left-sidebar">
                 <p>Side bar</p>
             </div>
             <div style={style.body}>Body</div>

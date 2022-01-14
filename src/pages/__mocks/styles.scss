@@ -1,0 +1,47 @@
+$threshold: 768px;
+
+.ss-toggle-left-sidebar {
+	@media (min-width: $threshold) {
+		display: none;
+	}
+}
+
+.ss-grid-wrapper {
+    overflow-x: hidden;
+	grid-template-columns: 1fr 200px;
+
+    @media (min-width: $threshold){
+        overflow-x: initial;
+        grid-template-columns: 300px 1fr 200px;
+    }
+
+    .ss-left-sidebar { 
+        position: absolute;
+        width: 300px;
+        @media (min-width: $threshold) {
+            position: relative;
+            transform: translateX(0);
+        }
+
+        transform: translateX(-300px);
+        transition: transform 300ms;
+    }
+
+    .ss-overlay {
+		display: none;
+	}
+}
+
+.ss-grid-wrapper.show-left-sidebar {
+	.ss-left-sidebar {
+		transform: translateX(0);
+	}
+
+	.ss-overlay {
+		display: block;
+        @media (min-width: $threshold) {
+            display: none;
+        }
+	}
+}
+
