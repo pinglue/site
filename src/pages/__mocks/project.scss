@@ -8,7 +8,7 @@ $threshold: 768px;
 
 .ss-grid-wrapper {
     overflow-x: hidden;
-	grid-template-columns: 1fr 200px;
+	grid-template-columns: 1fr;
 
     @media (min-width: $threshold){
         overflow-x: initial;
@@ -25,6 +25,13 @@ $threshold: 768px;
 
         transform: translateX(-300px);
         transition: transform 300ms;
+    }
+
+    .ss-right-sidebar {
+        display: none;
+        @media (min-width: $threshold) {
+            display: block;
+        }
     }
 
     .ss-overlay {

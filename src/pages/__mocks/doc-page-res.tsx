@@ -8,14 +8,14 @@ const style: { [k: string]: CSSProperties } = {
     gridWrapper: {
         display: "grid",
         position: 'relative',
-        // gridTemplateColumns: "300px 1fr 200px", <-- defined in styles.scss using media query
+        // gridTemplateColumns: "300px 1fr 200px", <-- defined in project.scss using media query
         color: "white"
     },
     leftSideBar: {
         height: "100vh",
         backgroundColor: "purple",
         zIndex: 2,
-        // defined more style in styles.scss using media query
+        // defined more style in project.scss using media query
     },
     body: {
         height: "100vh",
@@ -24,6 +24,7 @@ const style: { [k: string]: CSSProperties } = {
     rightSidebar: {
         height: "100vh",
         backgroundColor: "green"
+        //defined more style in project.scss using media query
     },
     header: {
         backgroundColor: "black",
@@ -37,7 +38,7 @@ const style: { [k: string]: CSSProperties } = {
 		width: '100vw',
 		height: '100vh',
 		background: 'rgba(0,0,0,0.5)',
-        // defined more style in styles.scss using media query to toggle visibility
+        // defined more style in project.scss using media query to toggle visibility
     }
 }
 
@@ -58,7 +59,7 @@ export default function() {
                 <p>Side bar</p>
             </div>
             <div style={style.body}>Body</div>
-            <div style={style.rightSidebar}>Right sidebar</div>
+            <div style={style.rightSidebar} className="ss-right-sidebar">Right sidebar</div>
         </div>
         </>
     )
