@@ -1,5 +1,5 @@
 
-import React, { CSSProperties, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import './project.scss';
 
 // feel free to add more styles
@@ -45,6 +45,23 @@ const style: { [k: string]: CSSProperties } = {
 export default function() {
 
     const [showLeftSidebar, setShowLeftSidebar] = useState(false);
+    
+    let timer: any;
+    const threasholdToChangeLayout = 768;
+
+    const windowResizeHandler = () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            if(window.innerWidth >= threasholdToChangeLayout && showLeftSidebar) {
+                setShowLeftSidebar(false);
+            }    
+        }, 300);
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', windowResizeHandler, true);
+        return window.removeEventListener('resize', windowResizeHandler, true);
+    });
 
     return (
         <>
@@ -53,13 +70,13 @@ export default function() {
                 Toggle
             </button>
         </div>
-        <div style={style.gridWrapper} className={`ss-grid-wrapper ${showLeftSidebar?"show-left-sidebar":""}`}>
-            <div style={style.overlay} className="ss-overlay" onClick={() => setShowLeftSidebar(false)}></div>
-            <div style={style.leftSideBar} className="ss-left-sidebar">
+        <div style={style.gridWrapper} className={`ss-doc-wrapper ${showLeftSidebar?"show-left-sidebar":""}`}>
+            <div style={style.overlay} className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
+            <div style={style.leftSideBar} className="ss-doc-wrapper__left-sidebar">
                 <p>Side bar</p>
             </div>
             <div style={style.body}>Body</div>
-            <div style={style.rightSidebar} className="ss-right-sidebar">Right sidebar</div>
+            <div style={style.rightSidebar} className="ss-doc-wrapper__right-sidebar">Right sidebar</div>
         </div>
         </>
     )
