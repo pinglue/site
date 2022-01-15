@@ -1,54 +1,59 @@
 $threshold: 768px;
+$leftSidebarWidth: 300px;
+$rightSidebarWidth: 200px;
+$animationPeriod: 300ms;
 
-.ss-toggle-left-sidebar {
-	@media (min-width: $threshold) {
-		display: none;
-	}
-}
-
-.ss-grid-wrapper {
+.ss-doc-wrapper {
     overflow-x: hidden;
 	grid-template-columns: 1fr;
 
-    @media (min-width: $threshold){
-        overflow-x: initial;
-        grid-template-columns: 300px 1fr 200px;
+    &__left-sidebar { 
+        position: absolute;
+        width: $leftSidebarWidth;
+
+        transform: translateX(-$leftSidebarWidth);
+        transition: transform $animationPeriod;
+
+        .show-left-sidebar & {
+            transform: translateX(0);
+        }
     }
 
-    .ss-left-sidebar { 
-        position: absolute;
-        width: 300px;
+    &__right-sidebar {
+        display: none;
+    }
+
+    &__overlay {
+		display: none;
+        .show-left-sidebar & {
+            display: block;
+        }
+	}
+}
+
+@media (min-width: $threshold) {
+    .ss-toggle-left-sidebar {
         @media (min-width: $threshold) {
+            display: none;
+        }
+    }
+
+    .ss-doc-wrapper {
+        overflow-x: initial;
+        grid-template-columns: $leftSidebarWidth 1fr $rightSidebarWidth;
+
+        &__left-sidebar {
             position: relative;
             transform: translateX(0);
         }
 
-        transform: translateX(-300px);
-        transition: transform 300ms;
-    }
+        &__right-sidebar {
+            display: block;    
+        }
 
-    .ss-right-sidebar {
-        display: none;
-        @media (min-width: $threshold) {
-            display: block;
+        &__overlay {
+            display: none!important;
         }
     }
-
-    .ss-overlay {
-		display: none;
-	}
-}
-
-.ss-grid-wrapper.show-left-sidebar {
-	.ss-left-sidebar {
-		transform: translateX(0);
-	}
-
-	.ss-overlay {
-		display: block;
-        @media (min-width: $threshold) {
-            display: none;
-        }
-	}
 }
 
