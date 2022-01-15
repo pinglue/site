@@ -42,32 +42,35 @@ const style: { [k: string]: CSSProperties } = {
     }
 }
 
+// TODO: should be a shared const with scss
+const MOBILE_THRESHOL = 768;
+const DEBOUNCE_RATE = 300;
+
 export default function() {
 
     const [showLeftSidebar, setShowLeftSidebar] = useState(false);
-    
-    let timer: any;
-    const threasholdToChangeLayout = 768;
-
-    const windowResizeHandler = () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            if(window.innerWidth >= threasholdToChangeLayout && showLeftSidebar) {
-                setShowLeftSidebar(false);
-            }    
-        }, 300);
-    }
 
     useEffect(() => {
-        window.addEventListener('resize', windowResizeHandler, true);
-        return window.removeEventListener('resize', windowResizeHandler, true);
-    });
+
+        let timer: any;
+        const windowResizeHandler = () => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {               
+                if(window.innerWidth <= MOBILE_THRESHOL)                   
+                    setShowLeftSidebar(false);
+            }, DEBOUNCE_RATE);
+        }
+        window.addEventListener('resize', windowResizeHandler);
+        
+        return ()=>window.removeEventListener('resize', windowResizeHandler);
+
+    }, []);
 
     return (
         <>
         <div style={style.header}>
             <button className="ss-toggle-left-sidebar" onClick={()=>setShowLeftSidebar(!showLeftSidebar)}>
-                Toggle
+                Togglee
             </button>
         </div>
         <div style={style.gridWrapper} className={`ss-doc-wrapper ${showLeftSidebar?"show-left-sidebar":""}`}>
@@ -75,7 +78,7 @@ export default function() {
             <div style={style.leftSideBar} className="ss-doc-wrapper__left-sidebar">
                 <p>Side bar</p>
             </div>
-            <div style={style.body}>Body</div>
+            <div style={style.body} className="ss-doc-wrapper__body">Body</div>
             <div style={style.rightSidebar} className="ss-doc-wrapper__right-sidebar">Right sidebar</div>
         </div>
         </>
