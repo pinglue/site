@@ -1,9 +1,10 @@
 import * as React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { MDXProvider } from "@mdx-js/react"
+import { MDXProvider } from "@mdx-js/react";
 
 import Toc from "./toc/toc";
-import Notice from './notice/notice';
+import Notice from "./notice/notice";
+import { Tab, Tabs } from "./tab/tabs";
 
 const gridWrapper = {
   display: "grid",
@@ -11,7 +12,7 @@ const gridWrapper = {
 };
 
 export default function ({ docName, title, body, slug }) {
-  const shortcodes = {Notice};
+  const shortcodes = { Notice, Tab, Tabs };
   return (
     <div style={gridWrapper}>
       <Toc docName={docName} slug={slug} />
@@ -19,7 +20,7 @@ export default function ({ docName, title, body, slug }) {
         <h1>{title}</h1>
         <div>
           <MDXProvider components={shortcodes}>
-              <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </MDXProvider>
         </div>
       </article>
