@@ -41,7 +41,7 @@ function Tabs({ children }) {
         })}
       </ol>
       <div>
-        {children.map(
+        {children.filter(
           (child) => child.props.label === activeTab && child.props.children
         )}
       </div>
