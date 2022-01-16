@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Ammar Doc themplate</title>
@@ -7,26 +7,20 @@
 
 <body>
 
+    <main class="ss-main">
 
-
-    <main>
-
-
-        <div class="b-example-divider"></div>
-
-        <div class="flex-shrink-0 bg-white p-3">
-            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                <!--<svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap" /></svg>-->
-                <img src="../../images/logo.png" class="bi me-1" width="40" height="40" />
+        <div class="flex-shrink-0 bg-white p-4 s-left-side-bar">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none ss-border-bottom">
+                <img src="../../static/img/logo.png" class="bi me-1" width="40" height="40" />
                 <span class="fs-5 fw-semibold">TOC</span>
             </a>
             <ul class="list-unstyled ps-0">
-                <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                        Header1
+                <li class="mb-1 ss-leftborder">
+                    <button class="btn s-btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Expanded
                     </button>
                     <div class="collapse show" id="home-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <ul class="s-btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="#" class="link-dark rounded">Sub1</a></li>
                             <li><a href="#" class="link-dark rounded">Sub2</a></li>
                             <li><a href="#" class="link-dark rounded">Sub3</a></li>
@@ -34,15 +28,67 @@
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                        Header2
+                    <button class="btn s-btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                        Collapsed
                     </button>
-                    <div class="collapse" id="dashboard-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                </li>
+                <li class="mb-1 ss-leftborder">
+                    <button class="btn s-btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Expanded
+                    </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="s-btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             <li><a href="#" class="link-dark rounded">Sub1</a></li>
                             <li><a href="#" class="link-dark rounded">Sub2</a></li>
                             <li><a href="#" class="link-dark rounded">Sub3</a></li>
-                            <li><a href="#" class="link-dark rounded">Sub4</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1 ss-leftborder">
+                    <button class="btn s-btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Expanded
+                    </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="s-btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Sub1</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub2</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub3</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1 ss-leftborder">
+                    <button class="btn s-btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Expanded
+                    </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="s-btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Sub1</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub2</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub3</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1 ss-leftborder">
+                    <button class="btn s-btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Expanded
+                    </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="s-btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Sub1</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub2</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub3</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1 ss-leftborder">
+                    <button class="btn s-btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        Expanded
+                    </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="s-btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Sub1</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub2</a></li>
+                            <li><a href="#" class="link-dark rounded">Sub3</a></li>
                         </ul>
                     </div>
                 </li>
@@ -50,26 +96,47 @@
             </ul>
         </div>
 
-        <div class="b-example-divider"></div>
+        <div class="ss-vertical-divider"></div>
         <div class="container-fluid h-100 ">
+            <header class="ss-header">
+                <nav class="p-1">
+                    <ul>
+                        <li class="d-inline-block"><a rel="" href="#">Breadcrump<span class="px-1">/</span></a></li>
+                        <li class="d-inline-block"><a rel="" href="#">Breadcrump<span class="px-1">/</span></a></li>
+                        <li class="d-inline-block"><a rel="" href="#">Breadcrump</a></li>
+
+                    </ul>
+                </nav>
+            </header>
             <div class="row h-100 p-3">
                 <h1>Header</h1>
-                <p>contents comes here..contents comes here..contents comes here..contents comes here..contents comes here..</p>
-                <h2>Sub header</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
                 <p>
-                    sub header comes here!
+                    The standard Lorem Ipsum passage, used since the 1500s
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                 </p>
             </div>
+        </div>
+        <div class="ss-vertical-divider ss-thin"></div>
+
+        <div class="flex-shrink-0 bg-white p-3 ">
+            <p>Page TOC</p>
+            <p>
+                <a href="#">section 1</a>
+            </p>
+            <p>
+                <a href="#">section 2</a>
+            </p>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center footer">
+    <footer class="bg-light text-center ss-footer">
         <!-- Grid container -->
         <div class="container p-4">
             <section class="mb-4">
                 <p>
-                   our footer text can come here!
+                    our footer text can come here!
                 </p>
             </section>
             <!-- Section: Text -->
@@ -145,65 +212,7 @@
         <!-- Copyright -->
 
     </footer>
-    <!-- Footer -->
-    <!--<header class="header fixed-top">
-        <div class="branding docs-branding">
-            <div class="container-fluid position-relative py-2">
-                <div class="docs-logo-wrapper">
-                    <div class="site-logo"><a class="navbar-brand" href="index.html">
-                        <img class="logo-icon" src="images/logo.png" alt="logo"><span class="logo-text">appers-lab.com</span></a></div>
-                </div>
-                <div class="docs-top-utilities d-flex justify-content-end align-items-center">
-                    <div class="top-search-box d-none d-lg-flex">
-                        <form class="search-form">
-                            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
-                            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-    <div class="docs-wrapper">
-        <div class="docs-sidebar sidebar-visible">
-            <div class="top-search-box d-lg-none p-3">
-                <form class="search-form">
-                    <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
-                    <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <nav id="docs-nav" class="docs-nav navbar">
-                <ul class="section-items list-unstyled nav flex-column pb-3">
-                    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li>
-                    <li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Section Item 1.1</a></li>
-
-                    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a></li>
-                    <li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">Section Item 2.1</a></li>
-
-
-                </ul>
-
-            </nav>
-        </div>
-        <div class="docs-content">
-            <div class="container">
-                <article class="docs-article" id="section-1">
-                    <header class="docs-header">
-                        <h1 class="docs-heading">Introduction</h1>
-                        <section class="docs-intro">
-                            <p>Our document contents comes here!</p>
-                        </section>
-                    </header>
-
-                </article>
-
-
-            </div>
-        </div>
-    </div>-->
 
 </body>
 </html>
