@@ -10,6 +10,7 @@ export default function ({ data }) {
       title={data.mdx.frontmatter.title}
       body={data.mdx.body}
       slug={data.mdx.slug}
+      mdxAST={data.mdx.mdxAST}
     />
   );
 }
@@ -26,6 +27,7 @@ export const q = graphql`
       }
       slug
       body
+      mdxAST
     }
   }
 `;
