@@ -8,7 +8,7 @@ import { TocNode } from "./toc-node";
 import TocItem from "./tocItem";
 import TocSection from "./tocSection";
 
-export default function ({ docName, slug }) {
+export function Toc ({ docName, slug }) {
   // build time data - list of mdx files
   const data = useStaticQuery(graphql`
     query {
@@ -29,6 +29,7 @@ export default function ({ docName, slug }) {
   const [list, setList] = useState<TocNode[]>([]);
 
   useEffect(() => {
+    console.log(tocLists.get(docName).list);
     if (!tocLists.get(docName).list) {
       const result = toTocNodes(nodes);
       tocLists.set(docName, {

@@ -1,14 +1,17 @@
 $threshold: 768px;
 $leftSidebarWidth: 300px;
-$rightSidebarWidth: 200px;
+$rightSidebarWidth: 250px;
+$headerHeight: 60px;
 $animationPeriod: 300ms;
 
+
 .ss-doc-wrapper {
-    overflow-x: hidden;
+    grid-template-rows: $headerHeight auto;
 	grid-template-columns: 1fr;
+    min-height: 100vh;
 
     &__left-sidebar { 
-        position: absolute;
+        position: fixed;
         width: $leftSidebarWidth;
 
         transform: translateX(-$leftSidebarWidth);
@@ -39,15 +42,28 @@ $animationPeriod: 300ms;
     }
 
     .ss-doc-wrapper {
-        overflow-x: initial;
         grid-template-columns: $leftSidebarWidth 1fr $rightSidebarWidth;
 
         &__left-sidebar {
-            position: relative;
+            position: sticky;
             transform: translateX(0);
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 1;
+        }
+
+        &__body {
+            grid-row: 2 / span 1;
+            grid-column: 2  / span 1;
+        }
+
+        &__header {
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 2;
         }
 
         &__right-sidebar {
+            grid-row: 2 / span 1;
+            grid-column: 3 / span 1;
             display: block;    
         }
 
