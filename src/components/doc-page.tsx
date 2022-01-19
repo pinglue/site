@@ -6,18 +6,15 @@ import Toc from "./toc/toc";
 import Notice from "./notice/notice";
 import { Tab, Tabs } from "./tab/tabs";
 import HeadersList from "./headersList/headersList";
+import { H2, H3 } from "./headers/headers";
 
 const gridWrapper = {
   display: "grid",
   gridTemplateColumns: "300px 1fr 300px",
 };
 
-const H2 = ({ children }) => {
-  return <h2 id={children}>{children}</h2>;
-};
-
-export default function ({ docName, title, body, slug, mdxAST }) {
-  const shortcodes = { Notice, Tab, Tabs, h2: H2 };
+export default function ({ docName, title, body, slug, headings }) {
+  const shortcodes = { Notice, Tab, Tabs, h2: H2, h3: H3 };
 
   return (
     <div style={gridWrapper}>
@@ -30,7 +27,7 @@ export default function ({ docName, title, body, slug, mdxAST }) {
           </MDXProvider>
         </div>
       </article>
-      <HeadersList mdxAST={mdxAST} />
+      <HeadersList headings={headings} />
     </div>
   );
 }
