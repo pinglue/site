@@ -3,7 +3,7 @@
 .ss-doc-wrapper {
     display: grid;
     position: relative;
-    grid-template-rows: $headerHeight auto;
+    grid-template-rows: $headerHeight auto auto;
 	grid-template-columns: 100vw;
     width: 100vw;
     min-height: 100vh;
@@ -38,11 +38,6 @@
         margin: 1rem,
     }
 
-    &__right-sidebar {
-        display: none;
-        min-height: calc(100vh - $headerHeight);
-    }
-
     &__overlay {
         .show-left-sidebar & {
             display: block;
@@ -69,7 +64,6 @@
 
     .ss-doc-wrapper {
         grid-template-columns: $leftSidebarWidth calc(100vw - $leftSidebarWidth);
-        grid-template-rows: $headerHeight auto auto;
 
         &__left-sidebar {
             position: sticky;
@@ -91,8 +85,6 @@
         &__right-sidebar {
             grid-row: 3 / span 1;
             grid-column: 2 / span 1;
-            display: block;
-            min-height: auto;
         }
 
         &__overlay {
