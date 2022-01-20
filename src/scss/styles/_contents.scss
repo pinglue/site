@@ -66,4 +66,18 @@
   iframe {
     max-width: 420px;
   }
+
+	pre {
+		overflow: auto;
+		background: #0d1117;
+		width: 100%;
+		padding: 0.75rem;
+		font-size: 0.85rem;
+		line-height: 1.4;
+		margin: 1rem 0;
+		code {
+			background-color: inherit;
+			color: white;
+		}
+	}
 }
