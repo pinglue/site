@@ -1,5 +1,7 @@
 
 import React, { CSSProperties, useEffect, useState } from "react";
+import {Notice, NoticeMessage, NoticeType} from "../../components/notice/notice";
+import { NoticeController } from "../../components/notice/notice-controller";
 import './project.scss';
 
 // feel free to add more styles
@@ -81,7 +83,7 @@ export default function() {
             <div style={style.body} className="ss-doc-wrapper__body">Body</div>
             <div style={style.rightSidebar} className="ss-doc-wrapper__right-sidebar">Right sidebar</div>
         </div>
+        <NoticeController />
         </>
-    )
-
+    );
 }

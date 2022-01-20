@@ -1,0 +1,66 @@
+html {
+	--color-success-light: #E8F9EB;
+	--color-success: #12C132;
+	--color-success-dark: #079020;
+
+	--color-warning-light: #FCEBC2;
+	--color-warning: #FDB813;
+	--color-warning-dark: #A47300;
+
+	--color-error-light: #FBECEC;
+	--color-error: #EA4242;
+	--color-error-dark: #BB1313;
+}
+
+.ss-notice-box-wrapper {
+    z-index: 100;
+    position: fixed;
+    width: 96%;
+    max-width: 500px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    >*:not(:last-child) {
+        margin-bottom: 5px;
+    }
+}
+
+.ss-notice-box {
+	background: #2b2c2d;
+	color: white;
+	border: solid 1px #2b2c2d;
+	padding-right: 8px;
+	border-radius: 4px;
+
+	&__icon {
+		padding: 10px 8px;
+		margin-right: 8px;
+		color: white;
+	}
+
+	&__success {
+		background: var(--color-success-light);
+		color: var(--color-success-dark);
+		border-color: var(--color-success);
+		& .ss-notice-box__icon {
+			background: var(--color-success);
+		}
+	}
+	&__warning {
+		background: var(--color-warning-light);
+		color: var(--color-warning-dark);
+		border-color: var(--color-warning);
+		& .ss-notice-box__icon {
+			background: var(--color-warning);
+		}
+	}
+	&__error {
+		background: var(--color-error-light);
+		color: var(--color-error-dark);
+		border-color: var(--color-error);
+		& .ss-notice-box__icon {
+			background: var(--color-error)
+		}
+	}
+}
