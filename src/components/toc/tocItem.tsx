@@ -6,7 +6,7 @@ const TocItem = ({item,slug}:{item:TocNode, slug:string}) => {
     return <li
     onClick={() => navigate(`/docs/${item.slug}`)}
     key={item.id}
-    className="leftSidebar__item"
+    className="ss-toc__item"
     style={{
       fontWeight: slug === item.slug ? "900" : undefined,
     }}

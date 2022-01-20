@@ -1,0 +1,29 @@
+
+/* Variables
+========================== */
+$details-modal-y-margin: 72px;
+$details-modal-col2-width: 500px;
+
+/* styles
+=========================== */
+appos-edit {
+  display: block;
+}
+
+/* Components
+========================= */
+// @import "project-cmps/banners";
+// @import "project-cmps/galleries";
+// @import "project-cmps/location-filler";
+// @import "project-cmps/mls";
+// @import "project-cmps/orderby-menu";
+// @import "project-cmps/page-titles";
+// @import "project-cmps/prop-cards";
+// @import "project-cmps/prop-details";
+// @import "project-cmps/search-map";
+// @import "project-cmps/mortgage-calc";
+// @import "project-cmps/mortgage-widgets";
+// @import "project-cmps/forms";
+
+@import "project-cmps/doc-wrapper";
+@import "project-cmps/toc";

@@ -1,42 +1,68 @@
-$threshold: 768px;
-$leftSidebarWidth: 300px;
-$rightSidebarWidth: 250px;
-$headerHeight: 60px;
-$animationPeriod: 300ms;
-
+@import './variables';
 
 .ss-doc-wrapper {
+    display: grid;
+    position: relative;
     grid-template-rows: $headerHeight auto;
 	grid-template-columns: 1fr;
+    width: 100vw;
     min-height: 100vh;
 
-    &__left-sidebar { 
+    &__left-sidebar {
+        z-index: 2;
         position: fixed;
+        top: 0;
         width: $leftSidebarWidth;
-
+        height: 100vh;
+        background-color: $backgroundColor;
+        box-sizing: 'border-box';
+        overflow: auto;
         transform: translateX(-$leftSidebarWidth);
         transition: transform $animationPeriod;
+        border-right: solid 1px whitesmoke;
 
         .show-left-sidebar & {
             transform: translateX(0);
         }
     }
 
+    &__header {
+        background-color: $backgroundColor;
+        position: sticky;
+        top: 0;
+        border-bottom: solid 1px whitesmoke;
+    }
+
+    &__body {
+        min-height: calc(100vh - $headerHeight);
+        margin: 1rem,
+    }
+
     &__right-sidebar {
         display: none;
+        min-height: calc(100vh - $headerHeight);
     }
 
     &__overlay {
-		display: none;
         .show-left-sidebar & {
             display: block;
+            z-index: 1;
         }
+
+        z-index: 0;
+		display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(black, 0.2);
 	}
 }
 
-@media (min-width: $threshold) {
+@media (min-width: $breakpointMd) {
     .ss-toggle-left-sidebar {
-        @media (min-width: $threshold) {
+        @media (min-width: $breakpointMd) {
             display: none;
         }
     }
@@ -72,4 +98,3 @@ $animationPeriod: 300ms;
         }
     }
 }
-

@@ -1,12 +1,10 @@
-.leftSidebar {
-  --active-background: #f2f2f2;
+.ss-toc {
+	--active-background: #f2f2f2;
   --item-color: #4b5563;
   --black: #000000;
-
-//   height: 100vh;
-//   min-height: 100vh;
+	
   margin-right: 1rem;
-
+  
   overflow: auto;
   &__menu {
     list-style: none;

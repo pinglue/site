@@ -1,0 +1,69 @@
+@use "sass:map";
+
+/* content section
+(blog post, static pages, etc)
+===================================== */
+
+.s-content {
+  -webkit-font-smoothing: antialiased;
+  color: $body-color;
+
+  p:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  p,
+  ul li,
+	ol li {
+    letter-spacing: 0.063px;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  ul li{
+    list-style: disc;
+  }
+
+  ol li {
+		list-style: auto;
+  }
+
+	ol li,
+  ul li {
+    margin-left: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  iframe {
+    max-width: 420px;
+  }
+}
