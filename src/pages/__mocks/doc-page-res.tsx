@@ -4,6 +4,7 @@ import { DocTitle } from "../../components/doc-title/doc-title";
 import { Header } from "../../components/header/header";
 import { Toc } from '../../components/toc/toc';
 import '../../scss/bundle.scss';
+import classNames from 'classnames';
 
 export default function () {
 
@@ -28,7 +29,7 @@ export default function () {
 
     return (
         <>
-            <div className={`ss-doc-wrapper ${showLeftSidebar ? "show-left-sidebar" : ""}`}>
+            <div className={classNames('ss-doc-wrapper', {'show-left-sidebar': showLeftSidebar})}>
                 <div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}>
                 </div>
                 <div className="ss-doc-wrapper__left-sidebar">
