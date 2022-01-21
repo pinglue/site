@@ -14,7 +14,7 @@ export function Header(props: Props) {
 	useEffect(() => { }, [])
 
 	return (
-		<div className="d-flex justify-content-between align-items-center mx-1" style={{ height: '100%' }}>
+		<div className="d-flex justify-content-between align-items-center" style={{ height: '100%' }}>
 			<div>
 				<button
 					className="btn s-icon-btn me-1 ss-toggle-left-sidebar"
