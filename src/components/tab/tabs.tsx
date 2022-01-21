@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeActiveTab } from "../../store/doc";
 
-const TabButton = ({ activeTab, label, onClick }) => {
+import { RootState } from "../../store/store";
+
+const TabButton = ({ activeTabId, id, label, onClick }) => {
   const handleClick = () => onClick(label);
   return (
     <li
@@ -9,7 +13,7 @@ const TabButton = ({ activeTab, label, onClick }) => {
         listStyle: "none",
         padding: "10px 15px",
         border: "2px solid red",
-        borderWidth: activeTab === label ? 2 : 0,
+        borderWidth: activeTabId === id ? 2 : 0,
       }}
       onClick={handleClick}
     >
@@ -23,26 +27,34 @@ function Tab({ children }) {
 }
 
 function Tabs({ children }) {
-  const [activeTab, setActiveTab] = useState(children[0].props.label);
-  console.log(children);
+  const dispatch = useDispatch();
+  const activeTabId = useSelector(
+    (state: RootState) => state.entities.doc.activeTabId
+  );
+
+  useEffect(() => {
+      if (!activeTabId) dispatch(changeActiveTab(children[0].props.id))
+  },[])
+
   return (
     <div>
       <ol style={{ paddingLeft: 0, borderBottom: "1px solid #ccc" }}>
         {children.map((child) => {
-          const { label } = child.props;
+          const { label, id } = child.props;
           return (
             <TabButton
-              activeTab={activeTab}
               key={label}
+              id={id}
+              activeTabId={activeTabId}
               label={label}
-              onClick={setActiveTab}
+              onClick={() => dispatch(changeActiveTab(id))}
             />
           );
         })}
       </ol>
       <div>
         {children.filter(
-          (child) => child.props.label === activeTab && child.props.children
+          (child) => child.props.id === activeTabId && child.props.children
         )}
       </div>
     </div>

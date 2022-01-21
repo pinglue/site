@@ -5,7 +5,6 @@ import { MDXProvider } from "@mdx-js/react";
 import Toc from "./toc/toc";
 import Notice from "./notice/notice";
 import { Tab, Tabs } from "./tab/tabs";
-
 const gridWrapper = {
   display: "grid",
   gridTemplateColumns: "300px 1fr",
