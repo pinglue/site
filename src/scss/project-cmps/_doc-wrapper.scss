@@ -1,0 +1,123 @@
+
+.ss-doc-wrapper {
+    display: grid;
+    position: relative;
+    //grid-template-rows: $headerHeight auto auto;
+	//grid-template-columns: 100vw;
+    width: 100%;
+    max-width:1600px;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    &__left-sidebar {
+        z-index: 2;
+        position: fixed;
+        top: 0;
+        width: $leftSidebarWidth;
+        height: 100vh;
+        background-color: $backgroundColor;
+        box-sizing: 'border-box';
+        overflow: auto;
+        transform: translateX(-$leftSidebarWidth);
+        transition: transform $animationPeriod;
+        border-right: solid 1px whitesmoke;
+
+        .show-left-sidebar & {
+            transform: translateX(0);
+        }
+    }
+
+    &__title-area {
+        padding: 1rem 1rem 0 1rem;
+        height: $headerHeight;
+        margin-bottom: 2rem;
+    }
+
+    &__header {
+        background-color: $backgroundColor;
+        position: sticky;
+        top: 0;
+        border-bottom: solid 1px whitesmoke;
+    }
+
+    &__body {
+        min-height: calc(100vh - $headerHeight);
+        padding: 2rem;
+        max-width: 920px;
+        width: 100%;
+        margin:0 auto;
+    }
+
+    &__overlay {
+        .show-left-sidebar & {
+            display: block;
+            z-index: 1;
+        }
+
+        z-index: 0;
+		display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(black, 0.2);
+	}
+}
+
+@media (min-width: $breakpointMd) {
+    .ss-toggle-left-sidebar {       
+        display: none;
+    }
+
+    .ss-doc-wrapper {
+        grid-template-columns: $leftSidebarWidth 1fr;
+
+        &__left-sidebar {
+            position: sticky;
+            transform: translateX(0);
+            grid-row: 1 / span 3;
+            grid-column: 1 / span 1;
+        }
+
+        &__body {
+            grid-row: 2 / span 1;
+            grid-column: 2  / span 1;
+        }
+
+        &__header {
+            grid-row: 1 / span 1;
+            grid-column: 2 / span 2;
+        }
+
+        &__right-sidebar {
+            grid-row: 3 / span 1;
+            grid-column: 2 / span 1;
+        }
+
+        &__overlay {
+            display: none!important;
+        }
+    }
+}
+
+@media (min-width: $breakpointLg) {
+    .ss-doc-wrapper {
+        grid-template-columns: $leftSidebarWidth 1fr $rightSidebarWidth;
+        grid-template-rows: $headerHeight auto;
+
+        &__left-sidebar {
+            position: sticky;
+            transform: translateX(0);
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 1;
+        }
+
+        &__right-sidebar {
+            grid-row: 2 / span 1;
+            grid-column: 3 / span 1;
+            display: block;    
+            min-height: calc(100vh - $headerHeight);
+        }
+    }
+}

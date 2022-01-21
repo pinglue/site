@@ -1,0 +1,113 @@
+/* md style button
+=========================== */
+
+/*button:disabled {
+  color: $grey;
+
+  :hover {
+    color: $grey;
+  }
+}*/
+
+@mixin btn() {
+  min-width: 4rem;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 1rem;
+  letter-spacing: 0.0892857143em;
+}
+
+.s-btn-link {
+  @include btn();
+  font-size: $font-size-sm;
+}
+
+.s-btn {
+
+  --text-color: white;
+  --bg-color: #{$primary-color};
+  --hover-text-color: white;
+  --hover-bg-color: #{$primary-color-shade};
+  --disabled-text-color: #{$grey};
+  --disabled-bg-color: #f5f5f5;
+
+
+  @include btn();
+
+  padding: 0rem 1rem;
+    
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  a {
+    color: var(--text-color)
+  }
+
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 4rem;
+  border-radius: 4px;
+  font-weight: bold;
+
+  &:hover:not(:disabled) {
+    background-color: var(--hover-bg-color);
+    color: var(--hover-text-color);
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    box-shadow: unset;
+    color: var(--disabled-text-color);
+    background-color: var(--disabled-bg-color);
+  }
+
+  &--round {
+    border-radius: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &--light {
+    --text-color: #{$primary-color};
+    --bg-color: #f5f5f5;
+    --disabled-text-color: #{$grey};
+  }
+
+  &--secondary {
+    --bg-color: #{$secondary-color};
+  }
+
+}
+
+.s-close-btn {
+
+  @include btn();
+  color: $grey;
+
+}
+
+.s-outline-btn {
+
+  @include btn();
+
+  --text-color: #{$body-color};  
+  --disabled-text-color: #{$grey};
+  --hover-bg-color: #{$grey};
+
+  color: var(--text-color);
+  background-color: transparent;
+
+  border: 1px solid var(--text-color);
+
+  &:hover {
+    background-color: var(--hover-bg-color);
+  }
+}
+
+.s-icon-btn {
+    padding: 0 0.5rem;
+}

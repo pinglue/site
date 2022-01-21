@@ -1,0 +1,122 @@
+
+/* typography styles
+======================== */
+.s-thin {
+  font-weight: 300;
+}
+
+.s-bold {
+  font-weight: 700;
+}
+
+.s-very-bold {
+  font-weight: 900;
+}
+
+.s-text-lg {
+  font-size: $font-size-lg;
+}
+
+.s-text-sm {
+  font-size: $font-size-sm;
+}
+
+
+// TODO: to be moved to layouts
+.s-text-center {
+  text-align: center;
+}
+
+.s-text-shadow {
+  text-shadow: $box-shadow;
+}
+
+.s-text-display1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  text-shadow: $box-shadow;
+}
+
+.s-text-lead {
+  font-size: $font-size-lg;
+}
+
+.s-mute {
+  color: $grey;
+}
+
+.s-grey {
+  color: $dark-grey;
+}
+
+.s-light-border {
+  border: 1px solid $light-grey;
+}
+
+
+.s-shadow {
+  box-shadow: $box-shadow;
+}
+
+.s-shadow-sm {
+  box-shadow: $box-shadow-sm;
+}
+
+
+.s-border {
+  border: 1px solid $grey;
+}
+
+.s-bg-white {
+  background-color: white;
+}
+
+.s-bg-primary {
+  background-color: $primary-color;
+}
+
+.s-bg-light {
+  background-color: $primary-bg-light;
+}
+
+
+
+/* dividers
+===================== */
+.s-divider {
+  position: relative;
+
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  border-top: 1px solid $light-grey;
+
+  div {
+    @include center(false, true);
+    top: -1.1rem;
+
+    padding: 0.35rem 0.45rem;
+    border-radius: 50%;
+    background-color: $primary-bg-light;
+    color: $grey;
+
+    @include md-shadow();
+  }
+}
+
+/* Miscs
+======================== */
+.s-qmark {
+  font-weight: bold;
+  margin-left: 0.3125rem;
+  padding: 1px 8px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+

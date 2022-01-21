@@ -7,12 +7,12 @@ const TocSection = ({ item, slug, list, setList }) => {
     <li key={item.id}>
       <Link
         to={`/docs/${item.slug}`}
-        className="leftSidebar__item"
+        className="ss-toc__item"
         style={{ fontWeight: slug === item.slug ? "900" : "600" }}
       >
         {item.title}
       </Link>
-      <ul className="leftSidebar__menu">
+      <ul className="ss-toc__menu">
         {item.children.map((sectionItem) => {
           if (sectionItem.children.length === 0)
           return <TocItem item={sectionItem} slug={slug} />
@@ -20,7 +20,7 @@ const TocSection = ({ item, slug, list, setList }) => {
             return (
               <li key={sectionItem.id}>
                 <div
-                  className="leftSidebar__item"
+                  className="ss-toc__item"
                   onClick={() => {
                     sectionItem.toggle();
                     setList([...list]);
@@ -34,11 +34,11 @@ const TocSection = ({ item, slug, list, setList }) => {
                       }deg)`,
                     }}
                   >
-                    &gt;
+                    <i className="bi-chevron-right"></i>
                   </span>
                 </div>
                 {sectionItem.isExpanded && (
-                  <ul className="leftSidebar__menu">
+                  <ul className="ss-toc__menu">
                     {sectionItem.children.map((subSectionTopic) => (
                       <TocItem item={subSectionTopic} slug={slug} />
                     ))}
