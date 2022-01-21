@@ -33,7 +33,7 @@ export default function () {
                 <div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}>
                 </div>
                 <div className="ss-doc-wrapper__left-sidebar">
-                    <div className="mx-1 mt-1">
+                    <div className="ss-doc-wrapper__title-area">
                         <DocTitle />
                     </div>
                     <Toc docName="pgweb" slug="test" ></Toc>

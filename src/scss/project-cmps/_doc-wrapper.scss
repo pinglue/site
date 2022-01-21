@@ -1,11 +1,12 @@
-@import './variables';
 
 .ss-doc-wrapper {
     display: grid;
     position: relative;
-    grid-template-rows: $headerHeight auto auto;
-	grid-template-columns: 100vw;
-    width: 100vw;
+    //grid-template-rows: $headerHeight auto auto;
+	//grid-template-columns: 100vw;
+    width: 100%;
+    max-width:1600px;
+    margin: 0 auto;
     min-height: 100vh;
 
     &__left-sidebar {
@@ -26,6 +27,12 @@
         }
     }
 
+    &__title-area {
+        padding: 1rem 1rem 0 1rem;
+        height: $headerHeight;
+        margin-bottom: 2rem;
+    }
+
     &__header {
         background-color: $backgroundColor;
         position: sticky;
@@ -35,7 +42,10 @@
 
     &__body {
         min-height: calc(100vh - $headerHeight);
-        margin: 1rem,
+        padding: 2rem;
+        max-width: 920px;
+        width: 100%;
+        margin:0 auto;
     }
 
     &__overlay {
@@ -56,14 +66,12 @@
 }
 
 @media (min-width: $breakpointMd) {
-    .ss-toggle-left-sidebar {
-        @media (min-width: $breakpointMd) {
-            display: none;
-        }
+    .ss-toggle-left-sidebar {       
+        display: none;
     }
 
     .ss-doc-wrapper {
-        grid-template-columns: $leftSidebarWidth calc(100vw - $leftSidebarWidth);
+        grid-template-columns: $leftSidebarWidth 1fr;
 
         &__left-sidebar {
             position: sticky;
@@ -95,7 +103,7 @@
 
 @media (min-width: $breakpointLg) {
     .ss-doc-wrapper {
-        grid-template-columns: $leftSidebarWidth calc(100vw - $leftSidebarWidth - $rightSidebarWidth) $rightSidebarWidth;
+        grid-template-columns: $leftSidebarWidth 1fr $rightSidebarWidth;
         grid-template-rows: $headerHeight auto;
 
         &__left-sidebar {
