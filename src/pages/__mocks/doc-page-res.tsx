@@ -1,10 +1,11 @@
 
-import React, { CSSProperties, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DocTitle } from "../../components/doc-title/doc-title";
 import { Header } from "../../components/header/header";
 import { Toc } from '../../components/toc/toc';
 import '../../scss/bundle.scss';
 import classNames from 'classnames';
+import { Helmet } from 'react-helmet';
 
 export default function () {
 
@@ -29,6 +30,9 @@ export default function () {
 
 	return (
 		<>
+            <Helmet>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Helmet>
 			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>
 				<div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
 				<div className="ss-doc-wrapper__left-sidebar">
