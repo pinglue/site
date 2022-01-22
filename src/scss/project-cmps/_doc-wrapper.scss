@@ -1,9 +1,5 @@
-
 .ss-doc-wrapper {
-    display: grid;
     position: relative;
-    //grid-template-rows: $headerHeight auto auto;
-	//grid-template-columns: 100vw;
     width: 100%;
     max-width:1600px;
     margin: 0 auto;
@@ -36,16 +32,14 @@
     &__header {
         background-color: $backgroundColor;
         position: sticky;
+        height: $headerHeight;
         top: 0;
         border-bottom: solid 1px whitesmoke;
     }
 
     &__body {
         min-height: calc(100vh - $headerHeight);
-        padding: 2rem;
-        max-width: 920px;
         width: 100%;
-        margin:0 auto;
     }
 
     &__overlay {
@@ -71,28 +65,14 @@
     }
 
     .ss-doc-wrapper {
-        grid-template-columns: $leftSidebarWidth 1fr;
-
         &__left-sidebar {
             position: sticky;
             transform: translateX(0);
-            grid-row: 1 / span 3;
-            grid-column: 1 / span 1;
+            flex: 0 0 $leftSidebarWidth;
         }
 
         &__body {
-            grid-row: 2 / span 1;
-            grid-column: 2  / span 1;
-        }
-
-        &__header {
-            grid-row: 1 / span 1;
-            grid-column: 2 / span 2;
-        }
-
-        &__right-sidebar {
-            grid-row: 3 / span 1;
-            grid-column: 2 / span 1;
+            flex: 0 1 920px;
         }
 
         &__overlay {
@@ -103,21 +83,14 @@
 
 @media (min-width: $breakpointLg) {
     .ss-doc-wrapper {
-        grid-template-columns: $leftSidebarWidth 1fr $rightSidebarWidth;
-        grid-template-rows: $headerHeight auto;
-
         &__left-sidebar {
             position: sticky;
             transform: translateX(0);
-            grid-row: 1 / span 2;
-            grid-column: 1 / span 1;
         }
 
         &__right-sidebar {
-            grid-row: 2 / span 1;
-            grid-column: 3 / span 1;
-            display: block;    
             min-height: calc(100vh - $headerHeight);
+            flex: 0 0 $rightSidebarWidth;
         }
     }
 }

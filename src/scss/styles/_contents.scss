@@ -69,13 +69,17 @@
 
     pre {
         overflow: auto;
-        background: #0d1117;
         width: 100%;
-        padding: 0.75rem;
+        border: solid 0.75rem #0d1117;
+        border-bottom-width: 0;
+        padding-bottom: 0.75em;
+        background: #0d1117;
         font-size: 0.85rem;
         line-height: 1.4;
         margin: 1rem 0;
         code {
+            width: 0;
+            display: block;
             background-color: inherit;
             color: white;
         }
