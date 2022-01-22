@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeActiveTab } from "../../store/doc";
+import { changeActiveTab, addTab } from "../../store/doc";
 
 import { RootState } from "../../store/store";
 
-const TabButton = ({ activeTabId, id, label, onClick }) => {
+const TabButton = ({ isActive, label, onClick }) => {
   const handleClick = () => onClick(label);
   return (
     <li
@@ -13,7 +13,7 @@ const TabButton = ({ activeTabId, id, label, onClick }) => {
         listStyle: "none",
         padding: "10px 15px",
         border: "2px solid red",
-        borderWidth: activeTabId === id ? 2 : 0,
+        borderWidth: isActive ? 2 : 0,
       }}
       onClick={handleClick}
     >
@@ -26,39 +26,43 @@ function Tab({ children }) {
   return children;
 }
 
-function Tabs({ children }) {
+function TabContainer({ children, id }) {
   const dispatch = useDispatch();
-  const activeTabId = useSelector(
-    (state: RootState) => state.entities.doc.activeTabId
+  const docName = useSelector(
+    (state: RootState) => state.entities.doc.activeDoc
   );
+  const currentTab = useSelector((state: RootState) => state.entities.doc.list)
+    .find((i) => i.name === docName)
+    .tabs.find((i) => i.id === id);
 
   useEffect(() => {
-      if (!activeTabId) dispatch(changeActiveTab(children[0].props.id))
-  },[])
+    dispatch(addTab(docName, id));
+  }, []);
 
   return (
     <div>
       <ol style={{ paddingLeft: 0, borderBottom: "1px solid #ccc" }}>
-        {children.map((child) => {
-          const { label, id } = child.props;
+        {children.map((child, index) => {
+          const { label } = child.props;
           return (
             <TabButton
               key={label}
-              id={id}
-              activeTabId={activeTabId}
+              isActive={currentTab?.activeIndex === index}
               label={label}
-              onClick={() => dispatch(changeActiveTab(id))}
+              onClick={() =>
+                dispatch(changeActiveTab(docName, currentTab.id, index))
+              }
             />
           );
         })}
       </ol>
       <div>
         {children.filter(
-          (child) => child.props.id === activeTabId && child.props.children
+          (child,index) => index === currentTab?.activeIndex && child.props.children
         )}
       </div>
     </div>
   );
 }
 
-export { Tab, Tabs };
+export { Tab, TabContainer };
