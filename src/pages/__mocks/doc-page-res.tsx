@@ -38,7 +38,7 @@ export default function () {
 				<div className="ss-doc-wrapper__left-sidebar">
 					<div className="ss-doc-wrapper__title-area">
 						<div className="d-flex">
-							<div className='me-1'>
+							<div className='me-1 d-md-none'>
 								<button style={{ fontSize: '22px' }} onClick={() => { setShowLeftSidebar(false); }}>
 									<i className='bi-x-lg'></i>
 								</button>
