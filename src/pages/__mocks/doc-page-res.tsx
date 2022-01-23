@@ -30,14 +30,21 @@ export default function () {
 
 	return (
 		<>
-            <Helmet>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Helmet>
+			<Helmet>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+			</Helmet>
 			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>
 				<div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
 				<div className="ss-doc-wrapper__left-sidebar">
 					<div className="ss-doc-wrapper__title-area">
-						<DocTitle />
+						<div className="d-flex">
+							<div className='me-1'>
+								<button style={{ fontSize: '22px' }} onClick={() => { setShowLeftSidebar(false); }}>
+									<i className='bi-x-lg'></i>
+								</button>
+							</div>
+							<DocTitle />
+						</div>
 					</div>
 					<Toc docName="pgweb" slug="test" ></Toc>
 				</div>
