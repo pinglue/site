@@ -1,0 +1,107 @@
+
+/* reboots
+===================== */
+label.disabled {
+  color: $grey;
+}
+
+.dropdown.selectbox .dropdown-toggle {
+  text-decoration: none;
+  color: #222;
+  display: block;
+  padding: 0.45rem;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  width: 100%;
+
+  @include dot-text-overflow();
+}
+
+/* utilities
+======================== */
+.s-input-error {
+  //font-size: 0.875rem;
+  color: red;
+  //margin-top: 0.25rem;
+}
+
+
+.s-required {
+  color: red;
+  font-size: 1rem;
+  &:after {
+    content: "*";
+  }
+}
+
+input.s-input-error, select.s-input-error {
+  border:2px solid red;
+}
+
+
+/* default check-box
+============================ */
+check-box {
+  --label-color: inherit;
+  --label-color-checked: inherit;
+  --box-border: #aaa;
+  --box-border-checked: black;
+  --box-content: block;
+  --box-color-checked: white;
+  --box-background-color-checked: #{$primary-color};
+  --gutter-width: 0.5rem;
+
+  width: fit-content;
+  display: block;
+}
+
+/* default radio-box
+============================ */
+
+radio-box {
+  --label-color: inherit;
+  --label-color-checked: inherit;
+  --box-border: 1px solid #aaa;
+  --box-border-checked: 1px solid #{$primary-color};
+  --box-color-checked: #{$primary-color};
+  --box-background-color-checked: transparent;
+  --gutter-width: 0.5rem;
+
+  width: fit-content;
+  display: block;
+}
+
+
+
+
+radio-box.default {
+
+
+
+
+  &.active {
+    & > div > div:first-child {
+      background-color: $primary-color;
+      border: unset;
+
+      div {
+        display: block;
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+  }
+}
+
+/* min-max-box
+======================== */
+min-max-box {
+  --layout: row;
+}
+
+@media screen and (max-width: map-get($grid-breakpoints, "sm")){
+  min-max-box {
+    --layout: stack;
+  }
+}
