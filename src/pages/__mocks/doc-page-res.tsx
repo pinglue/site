@@ -30,9 +30,9 @@ export default function () {
 
 	return (
 		<>
-            <Helmet>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Helmet>
+			<Helmet>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+			</Helmet>
 			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>
 				<div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
 				<div className="ss-doc-wrapper__left-sidebar">
@@ -84,6 +84,9 @@ export default function () {
 						</div>
 					</div>
 				</div>
+			</div>
+			<div className="py-hq px-2 text-center" style={{backgroundColor: '#0d1117', color: '#e5e5e5', fontWeight: 300, fontSize: '14px'}}>
+				© 2022 pinglue
 			</div>
 		</>
 	)
