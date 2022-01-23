@@ -1,0 +1,74 @@
+.ss-notice-box-wrapper {
+    z-index: 100;
+    position: fixed;
+    width: 96%;
+    max-width: 500px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    >*:not(:last-child) {
+        margin-bottom: 5px;
+    }
+}
+
+.ss-notice-box {
+    background: #2b2c2d;
+    color: white;
+    border: solid 1px #2b2c2d;
+    padding-right: 8px;
+    border-radius: 4px;
+
+    &__icon-wrapper {
+        position: relative;
+        padding: 10px 8px;
+        min-height: 25px;
+        flex: 0 0 40px;
+    }
+
+    &__icon {
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+    }
+
+    &__success {
+        background: var(--color-success-light);
+        color: var(--color-success-dark);
+        border-color: var(--color-success);
+        & .ss-notice-box__icon-wrapper {
+            background: var(--color-success);
+        }
+    }
+    &__warning {
+        background: var(--color-warning-light);
+        color: var(--color-warning-dark);
+        border-color: var(--color-warning);
+        & .ss-notice-box__icon-wrapper {
+            background: var(--color-warning);
+        }
+    }
+    &__error {
+        background: var(--color-error-light);
+        color: var(--color-error-dark);
+        border-color: var(--color-error);
+        & .ss-notice-box__icon-wrapper {
+            background: var(--color-error)
+        }
+    }
+
+    &__prerequisite,
+    &__recall,
+    &__tip,
+    &__note {
+        background: var(--color-blue-light);
+        color: var(--color-blue-dark);
+        border-color: var(--color-blue);
+        & .ss-notice-box__icon-wrapper {
+            background: var(--color-blue)
+        }
+    }
+}

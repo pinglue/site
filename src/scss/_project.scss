@@ -1,0 +1,41 @@
+
+/* Variables
+========================== */
+@import "project-cmps/variables";
+
+/* Components
+========================= */
+// @import "project-cmps/banners";
+// @import "project-cmps/galleries";
+// @import "project-cmps/location-filler";
+// @import "project-cmps/mls";
+// @import "project-cmps/orderby-menu";
+// @import "project-cmps/page-titles";
+// @import "project-cmps/prop-cards";
+// @import "project-cmps/prop-details";
+// @import "project-cmps/search-map";
+// @import "project-cmps/mortgage-calc";
+// @import "project-cmps/mortgage-widgets";
+// @import "project-cmps/forms";
+
+html {
+    --color-blue-light: #ecf6ff;
+    --color-blue: #389dfa;    
+    --color-blue-dark: #1660a4;
+
+    --color-success-light: #E8F9EB;
+    --color-success: #12C132;
+    --color-success-dark: #079020;
+
+    --color-warning-light: #FCEBC2;
+    --color-warning: #FDB813;
+    --color-warning-dark: #A47300;
+
+    --color-error-light: #FBECEC;
+    --color-error: #EA4242;
+    --color-error-dark: #BB1313;
+}
+
+@import "project-cmps/doc-wrapper";
+@import "project-cmps/toc";
+@import "project-cmps/notice";
