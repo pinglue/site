@@ -7,7 +7,7 @@ import { TocNode } from "./toc-node";
 import TocItem from "./tocItem";
 import TocSection from "./tocSection";
 
-export function Toc ({ docName, slug }) {
+export default function Toc ({ docName, slug }) {
   // build time data - list of mdx files
   const data = useStaticQuery(graphql`
     query {
