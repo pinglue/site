@@ -85,7 +85,7 @@ export default function () {
 					</div>
 				</div>
 			</div>
-			<div className="py-hq px-2 text-center" style={{backgroundColor: '#0d1117', color: '#e5e5e5', fontWeight: 300, fontSize: '14px'}}>
+			<div className="py-hq px-2 text-center ss-doc-footer">
 				© 2022 pinglue
 			</div>
 		</>
