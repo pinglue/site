@@ -1,0 +1,28 @@
+.ss-toc {
+    --active-background: #f2f2f2;
+    --item-color: #4b5563;
+    --black: #{$body-color};
+    
+    overflow: auto;
+    &__menu {
+        list-style: none;
+        margin-left: 1rem;        
+    }
+    &__item {
+        cursor: pointer;
+        margin-top: 0.25rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        color: var(--black);
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;       
+    }
+    &__item--active {
+        font-weight: 900;
+    }
+    &__item:hover {
+        color: var(--item-color);
+        background-color: var(--active-background);
+    }
+}

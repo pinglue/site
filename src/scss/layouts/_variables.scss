@@ -1,0 +1,77 @@
+
+/*
+layout variables (eventually to substitute bootstrap)
+*/
+
+$menu-link-padding-x: 1rem;
+$enable-smooth-scroll: true;
+
+$spacer: 16px;
+
+$spacers: (
+  0: 0,
+  q: $spacer * 0.25,
+  h: $spacer * 0.5,
+  hq: $spacer * 0.75,
+  1: $spacer * 1,
+  1q: $spacer * 1.25,
+  1h: $spacer * 1.5,
+  1hq: $spacer * 1.75,
+  2: $spacer * 2,
+  2q: $spacer * 2.25,
+  2h: $spacer * 2.5,
+  2hq: $spacer * 2.75,
+  3: $spacer * 3,
+  3q: $spacer * 3.25,
+  3h: $spacer * 3.5,
+  3hq: $spacer * 3.75,
+  4: $spacer * 4,
+  4q: $spacer * 4.25,
+  4h: $spacer * 4.5,
+  4hq: $spacer * 4.75,
+  5: $spacer * 5,
+  5q: $spacer * 5.25,
+  5h: $spacer * 5.5,
+  5hq: $spacer * 5.75,
+);
+
+.spacer-1 {
+height: $spacer;
+}
+
+.spacer-2 {
+height: 2*$spacer;
+}
+
+.spacer-3 {
+height: 3*$spacer;
+}
+
+.spacer-4 {
+height: 4*$spacer;
+}
+
+.spacer-5 {
+height: 5*$spacer;
+}
+
+.spacer-6 {
+height: 6*$spacer;
+}
+
+.spacer-7 {
+height: 8*$spacer;
+}
+
+.w100 {
+width:100%;
+}
+
+.h100 {
+height: 100%;
+}
+
+.cover {
+width:100%;
+height: 100%;
+}

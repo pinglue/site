@@ -4,12 +4,14 @@ import { graphql } from "gatsby";
 import DocPage from "../../components/doc-page";
 
 export default function ({ data }) {
+  console.log(data.mdx.headings);
   return (
     <DocPage
       docName={getDocName(data.mdx.slug)}
       title={data.mdx.frontmatter.title}
       body={data.mdx.body}
       slug={data.mdx.slug}
+      headings={data.mdx.headings}
     />
   );
 }
@@ -26,6 +28,10 @@ export const q = graphql`
       }
       slug
       body
+      headings {
+        depth
+        value
+      }
     }
   }
 `;

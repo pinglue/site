@@ -1,0 +1,71 @@
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s, `<ul>`s or `<ol>`s.
+
+.menu {
+
+  --link-padding-x: #{$menu-link-padding-x};
+  --link-padding-y: 0;
+  --align-items: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: var(--flex-direction, row);
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  align-items: var(--align-items);
+
+  &.menu--column, &.menu--stack {
+    --flex-direction: column;
+    --align-items: none;
+    --link-padding-x: #{1.5*$spacer};
+    height: 100%;
+    
+
+  }
+
+  & > li > a, & > li > button {
+    display: block;
+    padding-top: var(--link-padding-y);
+    padding-bottom: var(--link-padding-y);
+    padding-left: var(--link-padding-x);
+    padding-right: var(--link-padding-x)
+  }
+}
+
+//
+// Justified variants
+//
+
+.menu.menu--fill {
+  --link-padding-x: 0;
+
+  > li > a,
+  > li > button,
+  > li {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.menu.menu--justified {
+  --link-padding-x: 0;
+
+  > li > a,
+  > li > button,
+  > li {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.menu.menu--fill,
+.menu.menu--justified {
+  & > li > button {
+    width: 100%; // Make sure button will grow
+  }
+}

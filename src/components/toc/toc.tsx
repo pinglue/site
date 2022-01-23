@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import "./toc.scss";
 import { toTocNodes } from "./utils";
 import { tocLists } from "./global-toc-nodes";
 import { TocNode } from "./toc-node";
 import TocItem from "./tocItem";
 import TocSection from "./tocSection";
 
-export default function ({ docName, slug }) {
+export default function Toc ({ docName, slug }) {
   // build time data - list of mdx files
   const data = useStaticQuery(graphql`
     query {
@@ -39,8 +38,8 @@ export default function ({ docName, slug }) {
   }, []);
 
   return (
-    <article className="leftSidebar">
-      <ul className="leftSidebar__menu">
+    <article className="ss-toc">
+      <ul className="ss-toc__menu">
         {list.map((item) =>
           item.children.length === 0 ? (
             <TocItem item={item} slug={slug} />
