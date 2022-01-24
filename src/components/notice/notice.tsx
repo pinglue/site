@@ -39,21 +39,20 @@ export function Notice(props: Props) {
 
 	return (
 		<div
-			className={classNames('ss-notice-box', { [`ss-notice-box__${describeNoticeType(props.type)}`]: props.type >= 0 })}
+			className={classNames('p-hq ss-notice-box', { [`ss-notice-box__${describeNoticeType(props.type)}`]: props.type >= 0 })}
 		>
-			<div className="d-flex">
+			{
+				props.type >= 0 ?
+					<h6 className='ss-notice-box__title'>
+						<i className={classNames('me-h ss-notice-box__icon', icon)}></i>
+						<span>{describeNoticeType(props.type, { case: 'titlecase' })}</span>
+					</h6>
+					: null
+			}
+			<div style={{ alignSelf: 'center' }}>
 				{
-					props.type >=0 ?
-						<div className='p-q ss-notice-box__icon-wrapper'>
-							<i className={classNames('ss-notice-box__icon', icon)}></i>
-						</div>
-						: null
+					props.message ? describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
 				}
-				<div className="py-h px-hq" style={{ alignSelf: 'center' }}>
-					{
-						props.message ? describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
-					}
-				</div>
 			</div>
 		</div>
 	);
