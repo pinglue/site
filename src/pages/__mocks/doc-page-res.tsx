@@ -37,13 +37,13 @@ export default function () {
 				<div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
 				<div className="ss-doc-wrapper__left-sidebar">
 					<div className="ss-doc-wrapper__title-area">
-						<div className="d-flex">
-							<div className='me-1 d-md-none'>
-								<button style={{ fontSize: '22px' }} onClick={() => { setShowLeftSidebar(false); }}>
-									<i className='bi-x-lg'></i>
+						<div className="d-flex justify-content-between align-items-center">
+							<DocTitle />
+							<div className='ms-1 d-md-none'>
+								<button className="btn s-icon-btn" style={{paddingRight: 0}} onClick={() => { setShowLeftSidebar(false); }}>
+									<i className='bi-x'></i>
 								</button>
 							</div>
-							<DocTitle />
 						</div>
 					</div>
 					<Toc docName="pgweb" slug="test" ></Toc>
