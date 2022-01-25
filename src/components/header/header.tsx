@@ -16,6 +16,7 @@ export function Header(props: Props) {
 
 	return (
 		<div className="d-flex justify-content-between align-items-center">
+
 			<div>
 				{
 					path.map((item, index) => {
@@ -29,7 +30,12 @@ export function Header(props: Props) {
 						);
 					})
 				}
+				<a className="ms-1h px-h py-q" style={{fontSize: '13px'}}>
+					<span className="d-none d-md-inline me-q">Edit this page</span>
+					<i className="bi-pen"></i>
+				</a>
 			</div>
+
 			<div>
 				<button
 					style={{ paddingRight: 0 }}
