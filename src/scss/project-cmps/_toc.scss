@@ -4,6 +4,8 @@
     --black: #{$body-color};
     
     overflow: auto;
+    padding: 0 1.5rem 0 0.5rem;
+    
     &__menu {
         list-style: none;
         margin-left: 1rem;        

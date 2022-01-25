@@ -9,12 +9,12 @@
         z-index: 2;
         position: fixed;
         top: 0;
-        width: $leftSidebarWidth;
+        width: 100vw;
         height: 100vh;
         background-color: $backgroundColor;
         box-sizing: 'border-box';
         overflow: auto;
-        transform: translateX(-$leftSidebarWidth);
+        transform: translateX(-100%);
         transition: transform $animationPeriod;
         border-right: solid 1px whitesmoke;
 
@@ -24,7 +24,7 @@
     }
 
     &__title-area {
-        padding: 1rem 1rem 0 1rem;
+        padding: 1rem 2rem 0 2rem;
         height: $headerHeight;
         margin-bottom: 2rem;
     }
