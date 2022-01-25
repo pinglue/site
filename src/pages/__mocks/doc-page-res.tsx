@@ -6,8 +6,8 @@ import { Toc } from '../../components/toc/toc';
 import '../../scss/bundle.scss';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
-import { Notice, NoticeMessage, NoticeType } from "../../components/notice/notice";
-import { NoticeController } from "../../components/notice/notice-controller";
+import { Notice, NoticeMessage, NoticeType, Note, Tip, Recall, Prereq, Warn } from "../../components/notice/notice";
+
 
 export default function () {
 
@@ -63,9 +63,9 @@ export default function () {
 
                                 <div className="my-1"></div>
 
-								<Notice type={NoticeType.warning}>
+								<Warn>
                                     Warning! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-								</Notice>
+								</Warn>
 
                                 <div className="my-1"></div>
 								
@@ -75,28 +75,28 @@ export default function () {
 
                                 <div className="my-1"></div>
 								
-								<Notice type={NoticeType.prerequisite}>
+								<Prereq>
                                     Prerequisite Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-								</Notice>
+								</Prereq>
 
                                 <div className="my-1"></div>
 
 								
-								<Notice type={NoticeType.recall}>
+								<Recall>
                                     Recall Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
-								</Notice>
+								</Recall>
 
                                 <div className="my-1"></div>
 
-								<Notice type={NoticeType.tip}>
+								<Tip>
 									Tip Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-								</Notice>
+								</Tip>
 
                                 <div className="my-1"></div>
 
-								<Notice type={NoticeType.note}>
+								<Note>
 									Note Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-								</Notice>
+								</Note>
 
                                 <div className="my-1"></div>
 
