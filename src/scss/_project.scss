@@ -18,6 +18,29 @@
 // @import "project-cmps/mortgage-widgets";
 // @import "project-cmps/forms";
 
+html {
+    --color-blue-light: #ecf4f9;
+    --color-blue: #2a98b9;    
+    --color-blue-dark: #1660a4;
+
+    --color-orange-light: #ffede3;
+    --color-orange: #ff884d;
+    --color-orange-dark: #ac4e1d;
+
+    --color-success-light: #f1fdf9;
+    --color-success: #00bf88;
+    --color-success-dark: #079020;
+
+    --color-warning-light: #fffbf5;
+    --color-warning: #f0ad4e;
+    --color-warning-dark: #A47300;
+
+    --color-error-light: #fff2f2;
+    --color-error: #d9534f;
+    --color-error-dark: #BB1313;
+}
+
 @import "project-cmps/doc-wrapper";
 @import "project-cmps/toc";
 @import "project-cmps/doc-footer";
+@import "project-cmps/notice";
