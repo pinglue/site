@@ -145,6 +145,9 @@ export default function () {
 					</div>
 				</div>
 			</div>
+			<div className="py-hq px-2 text-center ss-doc-footer">
+				© 2022 pinglue
+			</div>
 		</>
 	);
 }
