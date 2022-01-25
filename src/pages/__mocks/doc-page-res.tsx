@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { DocTitle } from "../../components/doc-title/doc-title";
 import { Header } from "../../components/header/header";
-import { Toc } from '../../components/toc/toc';
+import Toc from '../../components/toc/toc';
 import '../../scss/bundle.scss';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
