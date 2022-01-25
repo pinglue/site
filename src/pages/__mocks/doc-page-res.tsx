@@ -6,6 +6,8 @@ import Toc from '../../components/toc/toc';
 import '../../scss/bundle.scss';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
+import { Notice, NoticeMessage, NoticeType, Note, Tip, Recall, Prereq, Warn } from "../../components/notice/notice";
+
 
 export default function () {
 
@@ -30,9 +32,9 @@ export default function () {
 
 	return (
 		<>
-            <Helmet>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Helmet>
+			<Helmet>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+			</Helmet>
 			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>
 				<div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
 				<div className="ss-doc-wrapper__left-sidebar">
@@ -52,6 +54,57 @@ export default function () {
 							<div className="s-content">
 								<h1>What is Lorem Ipsum?</h1>
 								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+
+
+								<Notice type={NoticeType.success}>
+									Success! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Notice>
+
+                                <div className="my-1"></div>
+
+								<Warn>
+                                    Warning! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Warn>
+
+                                <div className="my-1"></div>
+								
+								<Notice type={NoticeType.error}>
+									Error Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Notice>
+
+                                <div className="my-1"></div>
+								
+								<Prereq>
+                                    Prerequisite Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Prereq>
+
+                                <div className="my-1"></div>
+
+								
+								<Recall>
+                                    Recall Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+								</Recall>
+
+                                <div className="my-1"></div>
+
+								<Tip>
+									Tip Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Tip>
+
+                                <div className="my-1"></div>
+
+								<Note>
+									Note Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Note>
+
+                                <div className="my-1"></div>
+
+								<Notice>
+									No style Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+								</Notice>
+
+
 								<h2>Why do we use it?</h2>
 								<ul>
 									<li>It is a long established fact that a reader will be distracted by the readable content</li>
@@ -80,12 +133,11 @@ export default function () {
 							</div>
 						</div>
 						<div className="ss-doc-wrapper__right-sidebar p-2">
-							<h6>In this article</h6>
+							<h6>In this article</h6>						
 						</div>
 					</div>
 				</div>
 			</div>
 		</>
-	)
-
+	);
 }
