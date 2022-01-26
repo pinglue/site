@@ -56,10 +56,6 @@
 }
 
 @media (min-width: $breakpointMd) {
-    .ss-toggle-left-sidebar {       
-        display: none;
-    }
-
     .ss-doc-wrapper {
         &__left-sidebar {
             position: sticky;
