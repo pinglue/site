@@ -24,9 +24,9 @@ function AppLink({
         }
       }
     `);
-    const slug = data.allMdx.nodes.find((i) => i.frontmatter.id === href.substring(1)).slug;
+    const slug = data.allMdx.nodes.find((i) => i.frontmatter?.id === href.substring(1))?.slug;
     return (
-      <Link to={"/docs/" + slug} {...props}>
+      <Link to={slug ? "/docs/" + slug : "/"} {...props}>
         {children}
       </Link>
     );
