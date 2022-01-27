@@ -2,40 +2,43 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
 function AppLink({
-  to,
+  href,
   children,
   ...props
 }: {
-  to: string;
+  href: string;
   children: string;
   [x:string]: any;
 }) {
-  if (to.startsWith(":")) {
+  if (href.startsWith(":")) {
     const data = useStaticQuery(graphql`
       query {
         allMdx {
           nodes {
-            id
             slug
+            frontmatter {
+              title
+              id
+            }
           }
         }
       }
     `);
-    const slug = data.allMdx.nodes.find((i) => i.id === to.substring(1)).slug;
+    const slug = data.allMdx.nodes.find((i) => i.frontmatter.id === href.substring(1)).slug;
     return (
       <Link to={"/docs/" + slug} {...props}>
         {children}
       </Link>
     );
-  } else if (to.startsWith("http")) {
+  } else if (href.startsWith("http")) {
     return (
-      <a href={to} download {...props}>
+      <a href={href} download {...props}>
         {children}
       </a>
     );
   }
   return (
-    <Link to={to} {...props}>
+    <Link to={href} {...props}>
       {children}
     </Link>
   );

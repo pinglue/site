@@ -18,7 +18,7 @@ const gridWrapper = {
 };
 
 
-const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Tab, TabContainer,AppLink, h2: H2, h3: H3 };
+const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Tab, TabContainer,a: AppLink, h2: H2, h3: H3 };
 
 export default function ({ docName, title, body, slug, headings }) {
 
