@@ -30,6 +30,7 @@
     &__header {
         background-color: $backgroundColor;
         position: sticky;
+        z-index: 2;
         top: 0;
         border-bottom: solid 1px whitesmoke;
     }
@@ -81,6 +82,8 @@
         }
 
         &__right-sidebar {
+            position: sticky;
+            top: 4.5rem;
             flex: 0 0 $rightSidebarWidth;
         }
     }
