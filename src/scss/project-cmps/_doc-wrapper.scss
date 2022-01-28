@@ -24,21 +24,17 @@
     }
 
     &__title-area {
-        padding: 1rem 2rem 0 2rem;
-        height: $headerHeight;
         margin-bottom: 2rem;
     }
 
     &__header {
         background-color: $backgroundColor;
         position: sticky;
-        height: $headerHeight;
         top: 0;
         border-bottom: solid 1px whitesmoke;
     }
 
     &__body {
-        min-height: calc(100vh - $headerHeight);
         width: 100%;
     }
 
@@ -60,10 +56,6 @@
 }
 
 @media (min-width: $breakpointMd) {
-    .ss-toggle-left-sidebar {       
-        display: none;
-    }
-
     .ss-doc-wrapper {
         &__left-sidebar {
             position: sticky;
@@ -72,7 +64,7 @@
         }
 
         &__body {
-            flex: 0 1 920px;
+            flex: 1 1 920px;
         }
 
         &__overlay {
@@ -89,7 +81,6 @@
         }
 
         &__right-sidebar {
-            min-height: calc(100vh - $headerHeight);
             flex: 0 0 $rightSidebarWidth;
         }
     }
