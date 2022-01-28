@@ -10,20 +10,21 @@ function AppLink({
   children: string;
   [x:string]: any;
 }) {
-  if (href.startsWith(":")) {
+
     const data = useStaticQuery(graphql`
-      query {
+    query {
         allMdx {
-          nodes {
-            slug
-            frontmatter {
-              title
-              id
+            nodes {
+                slug
+                frontmatter {
+                    title
+                    id
+                }
             }
-          }
         }
-      }
-    `);
+    }`);
+
+  if (href.startsWith(":")) {    
     const slug = data.allMdx.nodes.find((i) => i.frontmatter?.id === href.substring(1))?.slug;
     return (
       <Link to={slug ? "/docs/" + slug : "/"} {...props}>
@@ -32,7 +33,7 @@ function AppLink({
     );
   } else if (href.startsWith("http")) {
     return (
-      <a href={href} download {...props}>
+      <a href={href} {...props}>
         {children}
       </a>
     );
