@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import DocPage from "../../components/doc-page";
 
 export default function ({ data }) {
-  console.log(data.mdx.headings);
   return (
     <DocPage
       docName={getDocName(data.mdx.slug)}

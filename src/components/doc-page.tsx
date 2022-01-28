@@ -10,6 +10,7 @@ import {Warn, Prereq, Recall, Tip, Note} from "./notice/notice";
 import { Tab, TabContainer } from "./tab/tabs";
 import HeadersList from "./headersList/headersList";
 import { H2, H3 } from "./headers/headers";
+import AppLink from './appLink/appLink';
 
 const gridWrapper = {
   display: "grid",
@@ -17,7 +18,7 @@ const gridWrapper = {
 };
 
 
-const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Tab, TabContainer, h2: H2, h3: H3 };
+const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Tab, TabContainer,a: AppLink, h2: H2, h3: H3 };
 
 export default function ({ docName, title, body, slug, headings }) {
 
