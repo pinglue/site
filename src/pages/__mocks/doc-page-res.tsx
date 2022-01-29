@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { DocTitle } from "../../components/doc-title/doc-title";
 import { Header } from "../../components/header/header";
-import Toc from '../../components/toc/toc';
 import '../../scss/bundle.scss';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
 import { Notice, NoticeMessage, NoticeType, Note, Tip, Recall, Prereq, Warn } from "../../components/notice/notice";
+import DocToc from "../../components/toc/doc-toc";
 
 
 export default function () {
@@ -48,7 +48,7 @@ export default function () {
 							</div>
 						</div>
 					</div>
-					<Toc docName="pgweb" slug="test" ></Toc>
+					<DocToc docName="pgweb" slug="test" />
 				</div>
 
 				<div style={{flex: '1 1 auto'}}>
