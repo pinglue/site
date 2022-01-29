@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import classNames from 'classnames';
 
 export enum NoticeType {
@@ -18,39 +18,70 @@ export enum NoticeMessage {
 
 type Props = PropsWithChildren<{
 	type?: NoticeType,
-	message?: NoticeMessage
-}
->
+	message?: NoticeMessage,
+	dismissible?: boolean,
+	durationDismiss?: number,
+	hideTitle?: boolean,
+	onDismissed?: () => void,
+}>
 
 const ICON = new Map<NoticeType, string>()
-    .set(NoticeType.success, 'bi-check-circle')
-    .set(NoticeType.warning, 'bi-exclamation-triangle')
-    .set(NoticeType.error, 'bi-x-circle')
-    .set(NoticeType.prerequisite, 'bi-check2-square')
-    .set(NoticeType.recall, 'bi-exclamation-circle')
-    .set(NoticeType.tip, 'bi-lightning-charge')
-    .set(NoticeType.note, 'bi-pencil')
+	.set(NoticeType.success, 'bi-check-circle')
+	.set(NoticeType.warning, 'bi-exclamation-triangle')
+	.set(NoticeType.error, 'bi-x-circle')
+	.set(NoticeType.prerequisite, 'bi-check2-square')
+	.set(NoticeType.recall, 'bi-exclamation-circle')
+	.set(NoticeType.tip, 'bi-lightning-charge')
+	.set(NoticeType.note, 'bi-pencil')
 
 export function Notice(props: Props) {
 
 	const icon = ICON.get(props.type);
 
+	useEffect(() => {
+		let timer: any;
+		if (props.dismissible && props.durationDismiss > 0) {
+			clearTimeout(timer);
+			timer = setTimeout(props.onDismissed, props.durationDismiss);
+		}
+
+		return () => {
+			clearTimeout(timer);
+		}
+	}, []);
+
 	return (
 		<div
 			className={classNames('p-hq ss-notice-box', { [`ss-notice-box__${_describeNoticeType(props.type)}`]: props.type >= 0 })}
 		>
-			{
-				props.type >= 0 ?
-					<h6 className='ss-notice-box__title'>
-						<i className={classNames('me-h ss-notice-box__icon', icon)}></i>
-						<span>{_describeNoticeType(props.type, { case: 'titlecase' })}</span>
-					</h6>
-					: null
-			}
-			<div style={{ alignSelf: 'center' }}>
+			<div className="d-flex justify-content-between">
+				<div>
+					{
+						props.type >= 0 && !props.hideTitle ?
+							<h6 className='ss-notice-box__title'>
+								<i className={classNames('me-h ss-notice-box__icon', icon)}></i>
+								<span>{_describeNoticeType(props.type, { case: 'titlecase' })}</span>
+							</h6>
+							: null
+					}
+					<div>
+						{
+							props.message >= 0 ? _describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
+						}
+					</div>
+				</div>
+
 				{
-					props.message ? _describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
+					props.dismissible ?
+						<button
+							style={{ margin: '-6px -8px -12px 0' }}
+							className="s-icon-btn"
+							onClick={props.onDismissed}
+						>
+							<i className="bi-x"></i>
+						</button> : null
 				}
+
 			</div>
 		</div>
 	);
@@ -91,8 +122,8 @@ function _toTitleCase(s: string) {
 }
 
 // shorcodes
-export const Warn = (props: Props) => Notice({...props, type: NoticeType.warning});
-export const Prereq = (props: Props) => Notice({...props, type: NoticeType.prerequisite});
-export const Recall = (props: Props) => Notice({...props, type: NoticeType.recall});
-export const Tip = (props: Props) => Notice({...props, type: NoticeType.tip});
-export const Note = (props: Props) => Notice({...props, type: NoticeType.note});
+export const Warn = (props: Props) => Notice({ ...props, type: NoticeType.warning });
+export const Prereq = (props: Props) => Notice({ ...props, type: NoticeType.prerequisite });
+export const Recall = (props: Props) => Notice({ ...props, type: NoticeType.recall });
+export const Tip = (props: Props) => Notice({ ...props, type: NoticeType.tip });
+export const Note = (props: Props) => Notice({ ...props, type: NoticeType.note });
