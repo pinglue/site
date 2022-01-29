@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { paramCase } from 'param-case';
 
 function AppLink({
   href,
@@ -26,8 +27,9 @@ function AppLink({
 
   if (href.startsWith(":")) {    
     const slug = data.allMdx.nodes.find((i) => i.frontmatter?.id === href.substring(1))?.slug;
+    const formattedSlug = slug.split("/").map(i => paramCase(i)).join("/")
     return (
-      <Link to={slug ? "/docs/" + slug : "/"} {...props}>
+      <Link to={slug ? "/docs/" + formattedSlug : "/"} {...props}>
         {children}
       </Link>
     );

@@ -1,14 +1,19 @@
 import React from "react";
 import { Link, navigate } from "gatsby";
+import { paramCase } from "param-case";
+
 import TocItem from "./tocItem";
 
+
 const TocSection = ({ item, slug, list, setList }) => {
+  const url = item.slug.split("/").map(i => paramCase(i)).join("/")
+  const formattedSlug = slug.split("/").map(i => paramCase(i)).join("/")
   return (
     <li key={item.id}>
       <Link
-        to={`/docs/${item.slug}`}
+        to={`/docs/${url}`}
         className="ss-toc__item"
-        style={{ fontWeight: slug === item.slug ? "900" : "600" }}
+        style={{ fontWeight: formattedSlug === url ? "900" : "600" }}
       >
         {item.title}
       </Link>
