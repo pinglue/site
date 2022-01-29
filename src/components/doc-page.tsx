@@ -25,7 +25,6 @@ const gridWrapper = {
 const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Tab, TabContainer, a: AppLink, h2: H2, h3: H3 };
 
 export default function ({ docName, title, body, slug, headings }) {
-	console.log(headings);
 
 	const dispatch = useDispatch();
 
@@ -36,20 +35,23 @@ export default function ({ docName, title, body, slug, headings }) {
 	}, []);
 
 	let timer: any;
-	const threasholdToChangeLayout = 768;
+	const threasholdToChangeLayout = 768;   
 
-	const windowResizeHandler = () => {
-		clearTimeout(timer);
-		timer = setTimeout(() => {
-			if (window.innerWidth >= threasholdToChangeLayout && showLeftSidebar) {
-				setShowLeftSidebar(false);
-			}
-		}, 300);
-	}
+    const windowResizeHandler = () => {        
+        
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            if (window.innerWidth >= threasholdToChangeLayout && showLeftSidebar) {
 
-	useEffect(() => {
-		window.addEventListener('resize', windowResizeHandler, true);
-		return window.removeEventListener('resize', windowResizeHandler, true);
+                setShowLeftSidebar(false);
+            }
+        }, 500);
+    }
+	
+
+	useEffect(() => {       
+		window.addEventListener('resize', windowResizeHandler);
+		return () => window.removeEventListener('resize', windowResizeHandler);
 	});
 
 
@@ -59,8 +61,7 @@ export default function ({ docName, title, body, slug, headings }) {
 			<Helmet>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Helmet>
-			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>
-				<div className="ss-doc-wrapper__overlay" onClick={() => setShowLeftSidebar(false)}></div>
+			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>				
 				<div className="ss-doc-wrapper__left-sidebar">
 					<div className="ss-doc-wrapper__title-area pt-h pt-md-1 px-2">
 						<div className="d-flex justify-content-between align-items-center">

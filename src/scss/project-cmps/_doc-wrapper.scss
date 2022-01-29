@@ -6,7 +6,7 @@
     min-height: 100vh;
 
     &__left-sidebar {
-        z-index: 2;
+        z-index: 10;
         position: fixed;
         top: 0;
         width: 100vw;
@@ -39,7 +39,7 @@
         width: 100%;
     }
 
-    &__overlay {
+    /*&__overlay {
         .show-left-sidebar & {
             display: block;
             z-index: 1;
@@ -53,7 +53,7 @@
         width: 100vw;
         height: 100vh;
         background: rgba(black, 0.2);
-	}
+	}*/
 }
 
 @media (min-width: $breakpointMd) {
