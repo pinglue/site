@@ -42,15 +42,10 @@ const NotFoundPage = () => {
                         <span role="img" aria-label="Pensive emoji">
                             😔
                         </span>{" "}
-                        we couldn’t find what you were looking for.
+                        we don't have any page in this address. 
                         <br />
-                        {process.env.NODE_ENV === "development" ? (
-                            <>
-                                <br />
-                                Try creating a page in <code style={codeStyles}>src/pages/</code>.
-                                <br />
-                            </>
-                        ) : null}
+                        Please try another address or: 
+                        <br />                        
                         <br />
                         <Link to="/">Go home</Link>.
                     </p>
