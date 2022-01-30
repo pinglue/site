@@ -35,14 +35,19 @@ function HeadersList({
 						 <a href={"#" + paramCase(i.value)} >
 							<span>{i.value}</span>
 						</a>
-						{i.childs.length > 0 &&
-							i.childs.map((j) => (
-								<li className="ms-h my-h">
-									 <a href={"#" + paramCase(j)}>
-										<span>{j}</span>
-									</a> 
-								</li>
-							))}
+
+                        {i.childs.length > 0 && (
+                            <ul>
+                                {i.childs.map((j) => (
+                                    <li className="ms-h my-h">
+                                        <a href={"#" + paramCase(j)}>
+                                            <span>{j}</span>
+                                        </a> 
+                                    </li>
+							    ))}
+                            </ul>
+                        )}
+
 					</li>
 				))}
 			</ul>
