@@ -31,19 +31,19 @@ function HeadersList({
 		<aside>
 			<ul>
 				{data.map((i) => (
-					<div className="my-1">
-						<li><a href={"#" + paramCase(i.value)} >
+					<li className="my-1">
+						 <a href={"#" + paramCase(i.value)} >
 							<span>{i.value}</span>
-						</a></li>
+						</a>
 						{i.childs.length > 0 &&
 							i.childs.map((j) => (
-								<div className="ms-h my-h">
-									<li><a href={"#" + paramCase(j)}>
+								<li className="ms-h my-h">
+									 <a href={"#" + paramCase(j)}>
 										<span>{j}</span>
-									</a></li>
-								</div>
+									</a> 
+								</li>
 							))}
-					</div>
+					</li>
 				))}
 			</ul>
 		</aside>
@@ -51,3 +51,4 @@ function HeadersList({
 }
 
 export default HeadersList;
+
