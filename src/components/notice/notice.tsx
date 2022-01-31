@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useEffect } from "react";
 import classNames from 'classnames';
 
-export enum NoticeType {
+export enum NoticeTheme {
 	success,
 	error,
 	warning,
@@ -17,26 +17,19 @@ export enum NoticeMessage {
 }
 
 type Props = PropsWithChildren<{
-	type?: NoticeType,
+	theme?: NoticeTheme,
+	title?: String,
+	icon?: String,
 	message?: NoticeMessage,
 	dismissible?: boolean,
 	durationDismiss?: number,
-	hideTitle?: boolean,
+	inline?: boolean,
 	onDismissed?: () => void,
 }>
 
-const ICON = new Map<NoticeType, string>()
-	.set(NoticeType.success, 'bi-check-circle')
-	.set(NoticeType.warning, 'bi-exclamation-triangle')
-	.set(NoticeType.error, 'bi-x-circle')
-	.set(NoticeType.prerequisite, 'bi-check2-square')
-	.set(NoticeType.recall, 'bi-exclamation-circle')
-	.set(NoticeType.tip, 'bi-lightning-charge')
-	.set(NoticeType.note, 'bi-pencil')
-
 export function Notice(props: Props) {
 
-	const icon = ICON.get(props.type);
+	const message = props.message >= 0 ? _describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
 
 	useEffect(() => {
 		let timer: any;
@@ -52,24 +45,31 @@ export function Notice(props: Props) {
 
 	return (
 		<div
-			className={classNames('p-hq ss-notice-box', { [`ss-notice-box__${_describeNoticeType(props.type)}`]: props.type >= 0 })}
+			className={classNames('p-hq ss-notice-box', { [`ss-notice-box__${_describeNoticeTheme(props.theme)}`]: props.theme >= 0 })}
 		>
 			<div className="d-flex justify-content-between">
-				<div>
-					{
-						props.type >= 0 && !props.hideTitle ?
-							<h6 className='ss-notice-box__title'>
-								<i className={classNames('me-h ss-notice-box__icon', icon)}></i>
-								<span>{_describeNoticeType(props.type, { case: 'titlecase' })}</span>
-							</h6>
-							: null
-					}
-					<div>
-						{
-							props.message >= 0 ? _describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
-						}
-					</div>
-				</div>
+				{
+					props.inline ?
+						<p className="ss-notice-box__message">
+							<i className={classNames('me-h', props.icon)}></i>
+							<b className="me-q">{props.title} </b>
+							<span>{message}</span>
+						</p>
+						:
+						<div>
+							{
+								props.title ?
+									<h6 className='ss-notice-box__title'>
+										<i className={classNames('me-h ss-notice-box__icon', props.icon)}></i>
+										<span>{props.title}</span>
+									</h6>
+									: null
+							}
+							<div className="ss-notice-box__message">
+								{message}
+							</div>
+						</div>
+				}
 
 				{
 					props.dismissible ?
@@ -87,16 +87,16 @@ export function Notice(props: Props) {
 	);
 }
 
-function _describeNoticeType(type: NoticeType, option?: { case?: 'titlecase' }) {
+function _describeNoticeTheme(type: NoticeTheme, option?: { case?: 'titlecase' }) {
 	let s = '';
 	switch (type) {
-		case NoticeType.success: s = 'success'; break;
-		case NoticeType.warning: s = 'warning'; break;
-		case NoticeType.error: s = 'error'; break;
-		case NoticeType.prerequisite: s = 'prerequisite'; break;
-		case NoticeType.recall: s = 'recall'; break;
-		case NoticeType.tip: s = 'tip'; break;
-		case NoticeType.note: s = 'note'; break;
+		case NoticeTheme.success: s = 'success'; break;
+		case NoticeTheme.warning: s = 'warning'; break;
+		case NoticeTheme.error: s = 'error'; break;
+		case NoticeTheme.prerequisite: s = 'prerequisite'; break;
+		case NoticeTheme.recall: s = 'recall'; break;
+		case NoticeTheme.tip: s = 'tip'; break;
+		case NoticeTheme.note: s = 'note'; break;
 	}
 	if (option?.case === 'titlecase') {
 		s = _toTitleCase(s);
@@ -122,8 +122,8 @@ function _toTitleCase(s: string) {
 }
 
 // shorcodes
-export const Warn = (props: Props) => Notice({ ...props, type: NoticeType.warning });
-export const Prereq = (props: Props) => Notice({ ...props, type: NoticeType.prerequisite });
-export const Recall = (props: Props) => Notice({ ...props, type: NoticeType.recall });
-export const Tip = (props: Props) => Notice({ ...props, type: NoticeType.tip });
-export const Note = (props: Props) => Notice({ ...props, type: NoticeType.note });
+export const Warn = (props: Props) => Notice({ theme: NoticeTheme.warning, title: 'Warning', icon: 'bi-exclamation-triangle', ...props, });
+export const Prereq = (props: Props) => Notice({ theme: NoticeTheme.prerequisite, title: 'Prerequisite', icon: 'bi-check2-square', ...props, });
+export const Recall = (props: Props) => Notice({ theme: NoticeTheme.recall, title: 'Recall', icon: 'bi-exclamation-circle', ...props, });
+export const Tip = (props: Props) => Notice({ theme: NoticeTheme.tip, title: 'Tip', icon: 'bi-lightning-charge', ...props, });
+export const Note = (props: Props) => Notice({ theme: NoticeTheme.note, title: 'Note', icon: 'bi-pencil', ...props, });
