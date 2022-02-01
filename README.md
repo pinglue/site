@@ -11,7 +11,7 @@ Pre-req
 
 Project
 --------------
-* Project link: https://github.com/orgs/pinglue/projects/1
+* Project link (Org members only): https://github.com/orgs/pinglue/projects/1
 * MVP milestone: https://github.com/pinglue/pg-site/milestone/1
 
 General Help
