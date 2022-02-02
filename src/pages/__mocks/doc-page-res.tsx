@@ -5,13 +5,14 @@ import { Header } from "../../components/header/header";
 import '../../scss/bundle.scss';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
-import { Notice, NoticeMessage, NoticeType, Note, Tip, Recall, Prereq, Warn } from "../../components/notice/notice";
+import { Notice, NoticeMessage, Note, Tip, Recall, Prereq, Warn, NoticeTheme } from "../../components/notice/notice";
 import DocToc from "../../components/toc/doc-toc";
 
 
 export default function () {
 
 	const [showLeftSidebar, setShowLeftSidebar] = useState(false);
+	const [showSandbar, setShowSandbar] = useState(false);
 
 	let timer: any;
 	const threasholdToChangeLayout = 768;
@@ -51,7 +52,7 @@ export default function () {
 					<DocToc docName="pgweb" slug="test" />
 				</div>
 
-				<div style={{flex: '1 1 auto'}}>
+				<div style={{ flex: '1 1 auto' }}>
 					<div className="ss-doc-wrapper__header py-h py-md-1 px-2">
 						<Header onClickMenu={() => { setShowLeftSidebar(true) }} />
 					</div>
@@ -62,9 +63,13 @@ export default function () {
 								<h1>What is Lorem Ipsum?</h1>
 								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
+								<Notice theme={NoticeTheme.success} icon='bi-check-circle' title='Inline Notice' inline={true}>
+									Inline noticeBox. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+								</Notice>
+								<div className="my-1"></div>
 
 
-								<Notice type={NoticeType.success}>
+								<Notice theme={NoticeTheme.success} icon='bi-check-circle' title='Success'>
 									Success! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
 								</Notice>
 
@@ -76,7 +81,7 @@ export default function () {
 
 								<div className="my-1"></div>
 
-								<Notice type={NoticeType.error}>
+								<Notice theme={NoticeTheme.error} icon='bi-x-circle' title='Error'>
 									Error Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
 								</Notice>
 
@@ -141,10 +146,27 @@ export default function () {
 						</div>
 						<div className="ss-doc-wrapper__right-sidebar p-2">
 							<h6>In this article</h6>
+							<button className='s-btn' onClick={() => {
+								setShowSandbar(true);
+							}}>Show sandbar</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			{
+				showSandbar ?
+					<div style={{ position: 'fixed', bottom: '10px', left: '50%', transform: 'translateX(-50%', width: '90%', maxWidth: '500px', zIndex: 100, }}>
+						<Notice
+							theme={NoticeTheme.error}
+							dismissible={true}
+							durationDismiss={0}
+							message={NoticeMessage.ERROR}
+							onDismissed={() => {
+								setShowSandbar(false);
+							}}
+						/>
+					</div> : null
+			}
 			<div className="py-hq px-2 text-center ss-doc-footer">
 				© 2022 pinglue
 			</div>

@@ -31,6 +31,10 @@
         font-size: 20px;
     }
 
+    &__message {
+        font-size: 1.2rem;
+    }
+
     &__success,
     &__tip {
         background: var(--color-success-light);
@@ -75,5 +79,9 @@
         & .ss-notice-box__icon-wrapper {
             background: var(--color-blue)
         }
+    }
+
+    button {
+        color: inherit;
     }
 }
