@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useEffect } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import classNames from 'classnames';
 
 export enum NoticeTheme {
@@ -22,7 +22,6 @@ type Props = PropsWithChildren<{
 	icon?: String,
 	message?: NoticeMessage,
 	dismissible?: boolean,
-	durationDismiss?: number,
 	inline?: boolean,
 	onDismissed?: () => void,
 }>
@@ -31,17 +30,9 @@ export function Notice(props: Props) {
 
 	const message = props.message >= 0 ? _describeNoticeMessage(props.message!, { case: 'titlecase' }) : props.children
 
-	useEffect(() => {
-		let timer: any;
-		if (props.dismissible && props.durationDismiss > 0) {
-			clearTimeout(timer);
-			timer = setTimeout(props.onDismissed, props.durationDismiss);
-		}
+    const [shouldShow, setShouldShow] = useState<boolean>(true);
 
-		return () => {
-			clearTimeout(timer);
-		}
-	}, []);
+    if (!shouldShow) return null;
 
 	return (
 		<div
@@ -50,11 +41,11 @@ export function Notice(props: Props) {
 			<div className="d-flex justify-content-between">
 				{
 					props.inline ?
-						<p className="ss-notice-box__message">
+						<div className="ss-notice-box__message">
 							<i className={classNames('me-h', props.icon)}></i>
 							<b className="me-q">{props.title} </b>
 							<span>{message}</span>
-						</p>
+						</div>
 						:
 						<div>
 							{
@@ -76,7 +67,7 @@ export function Notice(props: Props) {
 						<button
 							style={{ margin: '-6px -8px -12px 0' }}
 							className="s-icon-btn"
-							onClick={props.onDismissed}
+							onClick={()=>setShouldShow(false)}
 						>
 							<i className="bi-x"></i>
 						</button> : null
