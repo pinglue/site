@@ -9,8 +9,10 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
+    "dev-loc-src": "DOCS_SRC=local gatsby develop",
+    "dev-git-src": "DOCS_SRC=git gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby build",    
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
