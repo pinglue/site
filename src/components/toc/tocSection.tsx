@@ -1,14 +1,14 @@
 import React from "react";
 import { Link, navigate } from "gatsby";
 import TocItem from "./tocItem";
+import classnames from "classnames";
 
 const TocSection = ({ item, slug, list, setList }) => {
   return (
     <li key={item.id}>
       <Link
         to={`/docs/${item.slug}`}
-        className="ss-toc__item"
-        style={{ fontWeight: slug === item.slug ? "900" : "600" }}
+        className={classnames("ss-toc__item", {"ss-toc__item--active":slug === item.slug})}
       >
         {item.title}
       </Link>

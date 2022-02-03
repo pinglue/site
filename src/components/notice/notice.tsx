@@ -36,7 +36,7 @@ export function Notice(props: Props) {
 
 	return (
 		<div
-			className={classNames('p-hq ss-notice-box', { [`ss-notice-box__${_describeNoticeTheme(props.theme)}`]: props.theme >= 0 })}
+			className={classNames('p-hq mb-2 ss-notice-box', { [`ss-notice-box__${_describeNoticeTheme(props.theme)}`]: props.theme >= 0 })}
 		>
 			<div className="d-flex justify-content-between">
 				{

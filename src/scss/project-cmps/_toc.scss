@@ -21,7 +21,7 @@
         text-decoration: none;       
     }
     &__item--active {
-        font-weight: 900;
+        background-color: var(--active-background);
     }
     &__item:hover {
         color: var(--item-color);
