@@ -6,12 +6,18 @@ const DOCS_INFO = {
 };
 
 // File system info
-const DEV_DOCS_PATH = "./dev-docs-src";
-const DOCS_PATH = "./docs-src";
+const DEV_DOCS_PATH = "./docs-src";
+const LOC_DOCS_PATH = "./loc-docs-src";
+const GIT_DOCS_PATH = "./git-docs-src";
+
 const DOCS_SRC_MAP = new Map()
-    .set("local", DOCS_PATH)
-    .set("git", DOCS_PATH)
-const fsPath = DOCS_SRC_MAP.get(process.env.DOCS_SRC) || DEV_DOCS_PATH;
+    .set("dev", DEV_DOCS_PATH)
+    .set("local", LOC_DOCS_PATH)
+    .set("git", GIT_DOCS_PATH)
+const fsPath = 
+    DOCS_SRC_MAP
+    .get(process.env.DOCS_SRC) || 
+    DEV_DOCS_PATH;
 
 // plugins
 const plugins = [

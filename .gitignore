@@ -1,6 +1,7 @@
 
 # real doc src folder
-docs-src/
+loc-docs-src/
+git-docs-src/
 
 # Coming from template: 
 # https://github.com/github/gitignore/blob/master/Node.gitignore
