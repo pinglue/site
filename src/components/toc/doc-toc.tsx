@@ -38,7 +38,7 @@ export default function DocToc ({ docName, slug }) {
   }, []);
 
   return (
-    <article className="ss-toc">
+    <menu className="ss-toc">
       <ul className="ss-toc__menu">
         {list.map((item) =>
           item.children.length === 0 ? (
@@ -48,6 +48,6 @@ export default function DocToc ({ docName, slug }) {
           )
         )}
       </ul>
-    </article>
+    </menu>
   );
 }

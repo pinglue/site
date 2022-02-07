@@ -118,3 +118,4 @@ export const Prereq = (props: Props) => Notice({ theme: NoticeTheme.prerequisite
 export const Recall = (props: Props) => Notice({ theme: NoticeTheme.recall, title: 'Recall', icon: 'bi-exclamation-circle', ...props, });
 export const Tip = (props: Props) => Notice({ theme: NoticeTheme.tip, title: 'Tip', icon: 'bi-lightning-charge', ...props, });
 export const Note = (props: Props) => Notice({ theme: NoticeTheme.note, title: 'Note', icon: 'bi-pencil', ...props, });
+export const Def = (props: Props) => Notice({ theme: NoticeTheme.recall, title: 'Definition', icon: 'bi-exclamation-circle', ...props, });

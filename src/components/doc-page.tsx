@@ -6,7 +6,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { changeActiveDoc } from "../store/doc";
 
 import DocToc from "./toc/doc-toc";
-import { Warn, Prereq, Recall, Tip, Note } from "./notice/notice";
+import { Warn, Prereq, Recall, Tip, Note, Def } from "./notice/notice";
 import { Tab, TabContainer } from "./tab/tabs";
 import HeadersList from "./headersList/headersList";
 import { H2, H3 } from "./headers/headers";
@@ -22,7 +22,7 @@ const gridWrapper = {
 };
 
 
-const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Tab, TabContainer, a: AppLink, h2: H2, h3: H3 };
+const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Def, Tab, TabContainer, a: AppLink, h2: H2, h3: H3 };
 
 export default function ({ docName, title, body, slug, headings }) {
 
@@ -62,25 +62,22 @@ export default function ({ docName, title, body, slug, headings }) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Helmet>
 			<div className={classNames('d-md-flex ss-doc-wrapper', { 'show-left-sidebar': showLeftSidebar })}>				
-				<div className="ss-doc-wrapper__left-sidebar">
-					<div className="ss-doc-wrapper__title-area pt-h pt-md-1 px-2">
-						<div className="d-flex justify-content-between align-items-center">
-							<DocTitle />
-							<div className='ms-1 d-md-none'>
-								<button className="btn s-icon-btn" style={{ paddingRight: 0 }} onClick={() => { setShowLeftSidebar(false); }}>
-									<i className='bi-x'></i>
-								</button>
-							</div>
-						</div>
+				<nav className="ss-doc-wrapper__left-sidebar">
+					<div className="ss-doc-wrapper__title-area pt-h pt-md-1 px-2 d-flex justify-content-between align-items-center">
+                        <DocTitle />
+                        <section className='ms-1 d-md-none'>
+                            <button className="btn s-icon-btn" style={{ paddingRight: 0 }} onClick={() => { setShowLeftSidebar(false); }}>
+                                <i className='bi-x'></i>
+                            </button>
+                        </section>
 					</div>
 					<DocToc docName={docName} slug={slug} />
-
-				</div>
+				</nav>
 
 				<div style={{ flex: '1 1 auto' }}>
-					<div className="ss-doc-wrapper__header py-h py-md-1 px-2">
+					<header className="ss-doc-wrapper__header py-h py-md-1 px-2">
 						<Header onClickMenu={() => { setShowLeftSidebar(true) }} />
-					</div>
+					</header>
 
 					<div className="d-lg-flex align-items-start ss-doc-wrapper__main">
 						<div className="ss-doc-wrapper__body p-2">
@@ -91,10 +88,10 @@ export default function ({ docName, title, body, slug, headings }) {
 								</MDXProvider>
 							</article>
 						</div>
-						<div className="ss-doc-wrapper__right-sidebar p-2">
+						<aside className="ss-doc-wrapper__right-sidebar p-2">
 							<h6 className="mb-1">In this article</h6>
 							<HeadersList headings={headings} />
-						</div>
+						</aside>
 					</div>
 				</div>
 			</div>

@@ -85,6 +85,10 @@
             position: sticky;
             top: 4.5rem;
             flex: 0 0 $rightSidebarWidth;
+            font-weight: 300;
+            ul > li > a {
+                color: $body-color;
+            }
         }
     }
 }

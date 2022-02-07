@@ -28,30 +28,29 @@ function HeadersList({
 		convertData();
 	}, headings);
 	return (
-		<aside>
-			<ul>
-				{data.map((i) => (
-					<li className="my-1">
-						 <a href={"#" + paramCase(i.value)} >
-							<span>{i.value}</span>
-						</a>
+	
+        <ul>
+            {data.map((i) => (
+                <li className="my-1">
+                        <a href={"#" + paramCase(i.value)} >
+                        <span>{i.value}</span>
+                    </a>
 
-                        {i.childs.length > 0 && (
-                            <ul>
-                                {i.childs.map((j) => (
-                                    <li className="ms-h my-h">
-                                        <a href={"#" + paramCase(j)}>
-                                            <span>{j}</span>
-                                        </a> 
-                                    </li>
-							    ))}
-                            </ul>
-                        )}
+                    {i.childs.length > 0 && (
+                        <ul>
+                            {i.childs.map((j) => (
+                                <li className="ms-h my-h">
+                                    <a href={"#" + paramCase(j)}>
+                                        <span>{j}</span>
+                                    </a> 
+                                </li>
+                            ))}
+                        </ul>
+                    )}
 
-					</li>
-				))}
-			</ul>
-		</aside>
+                </li>
+            ))}
+        </ul>
 	);
 }
 
