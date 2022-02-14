@@ -7,23 +7,37 @@ import { TocNode } from "./toc-node";
 import TocItem from "./tocItem";
 import TocSection from "./tocSection";
 
+import type {DocNode} from "../../commons";
+
 export default function DocToc ({ docName, slug }) {
   // build time data - list of mdx files
   const data = useStaticQuery(graphql`
     query {
-      allMdx(sort: { order: ASC, fields: slug }) {
+      allDoc(sort: { order: ASC, fields: sortSlug }) {
         nodes {
-          id
+          id          
           slug
-          frontmatter {
-            title
-          }
+          sortSlug
+          type
+          parent {
+            ... on Mdx {              
+              frontmatter {
+                title
+              }
+            }
+          }          
         }
       }
     }
   `);
 
-  const nodes: [] = data.allMdx.nodes;
+  const nodes = data.allDoc.nodes as DocNode[];
+
+  // assigning titles
+  for(const node of nodes) {
+      if (node.type === "mdx")
+        node.title = node.parent.frontmatter.title;
+  }
 
   const [list, setList] = useState<TocNode[]>([]);
 

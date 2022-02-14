@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 
+import type {DocNodeMdx} from "../../commons";
+
 function AppLink({
   href,
   children,
@@ -11,21 +13,25 @@ function AppLink({
   [x:string]: any;
 }) {
 
-    const data = useStaticQuery(graphql`
+    const {allDoc: {nodes}}: {allDoc:{nodes:DocNodeMdx[]}} = useStaticQuery(graphql`
     query {
-        allMdx {
+        allDoc(filter: {type: {eq: "mdx"}}) {
             nodes {
-                slug
-                frontmatter {
-                    title
-                    id
-                }
+                slug                
+                parent {
+                    ... on Mdx {
+                        frontmatter {
+                            title
+                            id
+                        }
+                    }
+                }                
             }
         }
     }`);
 
   if (href.startsWith(":")) {    
-    const slug = data.allMdx.nodes.find((i) => i.frontmatter?.id === href.substring(1))?.slug;
+    const slug = nodes.find((i) => i.parent.frontmatter?.id === href.substring(1))?.slug;
     return (
       <Link to={slug ? "/docs/" + slug : "/"} {...props}>
         {children}

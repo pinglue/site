@@ -1,23 +1,5 @@
 
-// Docs info
-const DOCS_INFO = {
-    pinglue: {},
-    pgweb: {}
-};
-
-// File system info
-const DEV_DOCS_PATH = "./docs-src";
-const LOC_DOCS_PATH = "./loc-docs-src";
-const GIT_DOCS_PATH = "./git-docs-src";
-
-const DOCS_SRC_MAP = new Map()
-    .set("dev", DEV_DOCS_PATH)
-    .set("local", LOC_DOCS_PATH)
-    .set("git", GIT_DOCS_PATH)
-const fsPath = 
-    DOCS_SRC_MAP
-    .get(process.env.DOCS_SRC) || 
-    DEV_DOCS_PATH;
+const {fsPath, DOCS_INFO} = require("./configs");
 
 // plugins
 const plugins = [
@@ -56,7 +38,11 @@ const plugins = [
         ]
       },
     },
-    "gatsby-plugin-sharp"
+    "gatsby-plugin-sharp",
+
+    // local plugins
+    "mdx-transformer",
+    "slug-dup-guard"
   ];
 
 

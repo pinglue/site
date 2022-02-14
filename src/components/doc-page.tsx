@@ -6,32 +6,30 @@ import { MDXProvider } from "@mdx-js/react";
 import { changeActiveDoc } from "../store/doc";
 
 import DocToc from "./toc/doc-toc";
-import { Warn, Prereq, Recall, Tip, Note, Def } from "./notice/notice";
-import { Tab, TabContainer } from "./tab/tabs";
+
 import HeadersList from "./headersList/headersList";
-import { H2, H3 } from "./headers/headers";
-import AppLink from './appLink/appLink';
+
 import { Helmet } from "react-helmet";
 import { Header } from "./header/header";
 import { DocTitle } from "./doc-title/doc-title";
 import classNames from "classnames";
 
-const gridWrapper = {
-	display: "grid",
-	gridTemplateColumns: "300px 1fr 300px",
-};
+import {SHORTCODES} from "./shortcodes";
 
+import type {DocName} from "../commons";
 
-const SHORTCODES = { Warn, Prereq, Recall, Tip, Note, Def, Tab, TabContainer, a: AppLink, h2: H2, h3: H3 };
+import type {PageProps} from "../commons";
 
-export default function ({ docName, title, body, slug, headings }) {
+export default function (props: PageProps) {
+
+    const {docName, title, type, slug, data} = props;
 
 	const dispatch = useDispatch();
 
 	const [showLeftSidebar, setShowLeftSidebar] = useState(false);
 
 	useLayoutEffect(() => {
-		dispatch(changeActiveDoc(slug.split("/")[0]));
+		dispatch(changeActiveDoc(slug.split("/")[0] as DocName));
 	}, []);
 
 	let timer: any;
@@ -83,14 +81,18 @@ export default function ({ docName, title, body, slug, headings }) {
 						<div className="ss-doc-wrapper__body p-2">
 							<article className="s-content">
                                 <h1>{title}</h1>
-								<MDXProvider components={SHORTCODES}>
-									<MDXRenderer>{body}</MDXRenderer>
-								</MDXProvider>
+                                {(type==="mdx") && (
+                                    <MDXProvider components={SHORTCODES}>
+                                        <MDXRenderer>
+                                            {data.body}
+                                        </MDXRenderer>
+								    </MDXProvider>
+                                )}								
 							</article>
 						</div>
 						<aside className="ss-doc-wrapper__right-sidebar p-2">
 							<h6 className="mb-1">In this article</h6>
-							<HeadersList headings={headings} />
+							<HeadersList {...props} />
 						</aside>
 					</div>
 				</div>

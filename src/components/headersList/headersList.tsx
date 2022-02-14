@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { paramCase } from "param-case";
 
-function HeadersList({
-	headings,
-}: {
-	headings?: { depth: number; value: string }[];
-}) {
+import type {PageProps, HeadingsData} from "../../commons";
+
+function HeadersList({type, data: pageData}: PageProps) {
+
+    let headings: HeadingsData = [];
+
+    if (type === "mdx")
+        headings = pageData.headings;
+
 	const [data, setData] = useState<{ value: string; childs: string[] }[]>([]);
 	const convertData = () => {
 		const rootItemIndexes = [];

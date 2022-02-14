@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-type DocNames = "pingule" | "pgweb";
+import type {DocName} from "../commons";
 
 type TabType = {
     id: string;
@@ -8,13 +8,13 @@ type TabType = {
 };
 
 type DocType = {
-    name: DocNames;
+    name: DocName;
     tabs?: TabType[];
 };
 
 type initialType = {
     list: DocType[];
-    activeDoc: DocNames
+    activeDoc: DocName
 };
 
 const initialState = {
@@ -37,7 +37,7 @@ const { reducer, actions } = createSlice({
     reducers: {
         tabAdded: (
             doc,
-            action: PayloadAction<{ docName: DocNames; tabContainerId: string }>
+            action: PayloadAction<{ docName: DocName; tabContainerId: string }>
         ) => {
             const docIndex = doc.list.findIndex(
                 (i) => i.name === action.payload.docName
@@ -54,7 +54,7 @@ const { reducer, actions } = createSlice({
         activeTabChanged: (
             doc,
             action: PayloadAction<{
-                docName: DocNames;
+                docName: DocName;
                 tabContainerId: string;
                 activeTabIndex: number;
             }>
@@ -69,7 +69,7 @@ const { reducer, actions } = createSlice({
             doc.list[docIndex].tabs[tabIndex].activeIndex =
                 action.payload.activeTabIndex;
         },
-        activeDocChanged: (doc, action: PayloadAction<DocNames>) => {
+        activeDocChanged: (doc, action: PayloadAction<DocName>) => {
             doc.activeDoc = action.payload
         }
     },
@@ -79,18 +79,18 @@ export default reducer;
 const { tabAdded, activeTabChanged, activeDocChanged } = actions;
 
 export const addTab =
-    (docName: DocNames, tabContainerId: string) => (dispatch, action) => {
+    (docName: DocName, tabContainerId: string) => (dispatch, action) => {
         dispatch(tabAdded({ docName, tabContainerId }));
     };
 
 export const changeActiveTab =
-    (docName: DocNames, tabContainerId: string, activeTabIndex: number) =>
+    (docName: DocName, tabContainerId: string, activeTabIndex: number) =>
         (dispatch, getState) => {
             return dispatch(
                 activeTabChanged({ docName, tabContainerId, activeTabIndex })
             );
         };
 
-export const changeActiveDoc = (docName: DocNames) => (dispatch, getState) => {
+export const changeActiveDoc = (docName: DocName) => (dispatch, getState) => {
     return dispatch(activeDocChanged(docName))
 }
