@@ -20,7 +20,7 @@ export default function CliDocBody(props: Props) {
                     ></CliDocItem>
                 </div>
 
-                <table className="cli-table">
+                <table className="ss-cli-table">
                     <thead>
                         <tr>
                             <th scope="col">Command</th>

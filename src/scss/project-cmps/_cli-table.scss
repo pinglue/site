@@ -1,5 +1,5 @@
 
-table.cli-table {
+table.ss-cli-table {
     border: 1px solid #ccc;
     border-collapse: collapse;
     margin: 0;
@@ -19,7 +19,7 @@ table.cli-table {
 }
     
 @media screen and (max-width: 900px) {
-    table.cli-table {
+    table.ss-cli-table {
       border: 0;
 
       thead {

@@ -35,13 +35,13 @@ export function CliDocItem(props: CliCommandData) {
 			<h3>Usage</h3>
 			<pre className="shell">
 				<code>
-					npx pg {props.command}
+					pg {props.command}
 				</code>
 			</pre>
 			{props.description ? <p>{props.description}</p> : null}
 			{
 				props.options?.length > 0 ?
-					<table className="cli-table">
+					<table className="ss-cli-table">
 						<thead>
 							<tr>
 								<th scope="col">Flags</th>
@@ -74,7 +74,7 @@ export function CliDocItem(props: CliCommandData) {
 									<p>{ex.description || ''}</p>
 									<pre className="shell">
 										<code>
-											npx pg {ex.command}
+										    pg {ex.command}
 										</code>
 									</pre>
 								</div>

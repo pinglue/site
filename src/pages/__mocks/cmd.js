@@ -1,6 +1,6 @@
 export const cmdMock = {
     "description": "The stuff we show on the main help page",
-    "command": "pg info <command> [param] [options]",
+    "command": "<command> [param] [options]",
     "commands": [
       {
         "command": "info [route-name]",
