@@ -46,7 +46,7 @@
         margin-bottom: 1.25rem;
     }
 
-    h3 {
+    h3, h4 {
         margin-top: 2rem;
         margin-bottom: 0.75rem;
     }
@@ -98,5 +98,14 @@
             background-color: inherit;
             color: white;
         }
+    }
+
+    pre.shell::before {
+        content: 'SHELL';
+        display: inline-block;
+        color: white;
+        background: #6e6e6e;
+        padding: 0.25em 0.5em;
+        margin-bottom: 0.5em;
     }
 }
