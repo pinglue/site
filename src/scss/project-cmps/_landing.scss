@@ -22,4 +22,18 @@
 			}
 		}	
 	}
+
+    a.s-card-expanded__footer{
+       color: var(--color-blue-dark);
+       background: var(--color-blue-light);
+       padding-top: 1rem;
+       padding-bottom: 1rem;
+
+       transition-property: background-color, color;
+       transition-duration: 100ms;
+       &:hover {
+           background-color: var(--color-blue-dark);
+           color: white;
+       }
+    }
 }
