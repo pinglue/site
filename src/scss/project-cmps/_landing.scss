@@ -1,0 +1,25 @@
+@use "sass:map";
+
+@mixin fontSetting($data) {
+	font-size: map.get($data, 'size');
+	font-weight: map.get($data, 'weight');
+	line-height: map.get($data, 'lineHeight');
+}
+
+.landing-page {
+	@include fontSetting($lpRegular);
+	@for $i from 1 through 4 {
+		h#{$i} {
+			@include fontSetting(map.get($lpH, $i));
+		}
+	}
+
+	@media (min-width: $breakpointMd) {
+		@include fontSetting($lpRegularMd);
+		@for $i from 1 through 4 {
+			h#{$i} {
+				@include fontSetting(map.get($lpHMd, $i));
+			}
+		}	
+	}
+}
