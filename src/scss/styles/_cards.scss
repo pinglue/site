@@ -1,0 +1,39 @@
+
+.s-card-expanded {
+    &.shadow {
+        box-shadow: 0px 5px 15px #0000001c;
+    }
+
+    border-radius: 10px;
+    background: white;
+    height: 100%;
+		overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    
+    &__image > img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    &__header {
+        //margin: 0px 10px;
+        padding: 0.75*$spacer $spacer;
+        border-bottom: 1px solid $light-grey;
+    }
+    
+    &__body {
+        flex: 1 1 auto;
+        padding: 1.5*$spacer $spacer;
+
+        h2, p {
+            margin-bottom: 0.5*$spacer;
+        }
+    }
+    
+    &__footer {
+        padding: 0.75*$spacer $spacer;
+    }
+}
+

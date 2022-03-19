@@ -1,0 +1,39 @@
+@use "sass:map";
+
+@mixin fontSetting($data) {
+	font-size: map.get($data, 'size');
+	font-weight: map.get($data, 'weight');
+	line-height: map.get($data, 'lineHeight');
+}
+
+.ss-landing-page {
+	@include fontSetting($lpRegular);
+	@for $i from 1 through 4 {
+		h#{$i} {
+			@include fontSetting(map.get($lpH, $i));
+		}
+	}
+
+	@media (min-width: $breakpointMd) {
+		@include fontSetting($lpRegularMd);
+		@for $i from 1 through 4 {
+			h#{$i} {
+				@include fontSetting(map.get($lpHMd, $i));
+			}
+		}	
+	}
+
+    a.s-card-expanded__footer{
+       color: var(--color-blue-dark);
+       background: var(--color-blue-light);
+       padding-top: 1rem;
+       padding-bottom: 1rem;
+
+       transition-property: background-color, color;
+       transition-duration: 100ms;
+       &:hover {
+           background-color: var(--color-blue-dark);
+           color: white;
+       }
+    }
+}
