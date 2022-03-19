@@ -6,7 +6,7 @@
 	line-height: map.get($data, 'lineHeight');
 }
 
-.landing-page {
+.ss-landing-page {
 	@include fontSetting($lpRegular);
 	@for $i from 1 through 4 {
 		h#{$i} {
